@@ -13,6 +13,8 @@ public class ProxyServer: NSObject, TunnelDelegate {
     /// The main proxy.
     ///
     /// There can be arbitrary number of proxies running at the same time. However, it is assumed that there is a main proxy server that handles connections that do not target any proxies but still should be proxied.
+    ///
+    /// - warning: This must be set before any connection is created.
     public static var mainProxy: ProxyServer!
 
     /// The port of proxy server.
@@ -51,10 +53,10 @@ public class ProxyServer: NSObject, TunnelDelegate {
     }
 
     /**
-     Delegate method when the proxy server accept a new ProxySocket from local.
-     
+     Delegate method when the proxy server accepts a new ProxySocket from local.
+
      When implementing a concrete proxy server, e.g., HTTP proxy server, the server should listen on some port and then wrap the raw socket in a corresponding ProxySocket subclass, then call this method.
-     
+
      - parameter socket: The accepted proxy socket.
      */
     func didAcceptNewSocket(socket: ProxySocket) {

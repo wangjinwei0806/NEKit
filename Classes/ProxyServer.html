@@ -407,6 +407,12 @@
 
 <p>There can be arbitrary number of proxies running at the same time. However, it is assumed that there is a main proxy server that handles connections that do not target any proxies but still should be proxied.</p>
 
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This must be set before any connection is created.
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -605,7 +611,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Delegate method when the proxy server accept a new ProxySocket from local.</p>
+                        <p>Delegate method when the proxy server accepts a new ProxySocket from local.</p>
 
 <p>When implementing a concrete proxy server, e.g., HTTP proxy server, the server should listen on some port and then wrap the raw socket in a corresponding ProxySocket subclass, then call this method.</p>
 
