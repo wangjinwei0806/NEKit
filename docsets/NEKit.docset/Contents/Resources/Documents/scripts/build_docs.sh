@@ -11,5 +11,6 @@ jazzy --swift-version 2.2 \
       --readme NEKit/README.md \
       --author "Zhuhao Wang" \
       --module "NEKit" \
-      --github_url "https://github.com/zhuhaow/NEKit"
+      --github_url "https://github.com/zhuhaow/NEKit" \
+      --min-acl internal
 

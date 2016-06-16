@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AdapterFactoryManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/AdapterFactoryManager" class="dashAnchor"></a>
+    <a title="AdapterFactoryManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NEKit Docs</a> (4% documented)</p>
+        <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NEKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AdapterFactoryManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AdapterFactoryManager.html">AdapterFactoryManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AdapterSocket.html">AdapterSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AllRule.html">AllRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Atomic.html">Atomic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationAdapterFactory.html">AuthenticationAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BinaryDataScanner.html">BinaryDataScanner</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Checksum.html">Checksum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConnectRequest.html">ConnectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C5NEKit15ConnectResponse">ConnectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CountryRule.html">CountryRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Cryptor.html">Cryptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Cryptor/Operation.html">– Operation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Cryptor/Algorithm.html">– Algorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Cryptor/Mode.html">– Mode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSMessage.html">DNSMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSNameConverter.html">DNSNameConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSQuery.html">DNSQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSResource.html">DNSResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSServer.html">DNSServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSSession.html">DNSSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectAdapter.html">DirectAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectAdapterFactory.html">DirectAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectProxySocket.html">DirectProxySocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectRule.html">DirectRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCDTCPSocket.html">GCDTCPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GeoIP.html">GeoIP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPAdapter.html">HTTPAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPAdapter/ReadTag.html">– ReadTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPAdapter/WriteTag.html">– WriteTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPAdapterFactory.html">HTTPAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IPMutablePacket.html">IPMutablePacket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IPPacket.html">IPPacket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IPStack.html">IPStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IPv4Address.html">IPv4Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IPv4Pool.html">IPv4Pool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListRule.html">ListRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NWTCPSocket.html">NWTCPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NWUDPSocket.html">NWUDPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Port.html">Port</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProxyServer.html">ProxyServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProxySocket.html">ProxySocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RawSocketFactory.html">RawSocketFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Router.html">Router</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Rule.html">Rule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RuleManager.html">RuleManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SOCKS5ProxyServer.html">SOCKS5ProxyServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SOCKS5ProxySocket.html">SOCKS5ProxySocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SecureHTTPAdapter.html">SecureHTTPAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SecureHTTPAdapterFactory.html">SecureHTTPAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ServerAdapterFactory.html">ServerAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ShadowsocksAdapter.html">ShadowsocksAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ShadowsocksAdapter/EncryptMethod.html">– EncryptMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ShadowsocksAdapter/ShadowsocksTag.html">– ShadowsocksTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ShadowsocksAdapterFactory.html">ShadowsocksAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SpeedAdapter.html">SpeedAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SpeedAdapterFactory.html">SpeedAdapterFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StreamScanner.html">StreamScanner</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TCPMutablePacket.html">TCPMutablePacket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TCPStack.html">TCPStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TUNTCPSocket.html">TUNTCPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Tunnel.html">Tunnel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UDPSegment.html">UDPSegment</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ChangeType.html">ChangeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSClass.html">DNSClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSMessageType.html">DNSMessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSReturnStatus.html">DNSReturnStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSSessionMatchResult.html">DNSSessionMatchResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSSessionMatchType.html">DNSSessionMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSType.html">DNSType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/IPVersion.html">IPVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SocketStatus.html">SocketStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TransportType.html">TransportType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UInt8.html">UInt8</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF5NEKitoi2eeFTCS_11IPv4AddressS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF5NEKitoi2eeFTCS_4PortS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AdapterFactoryProtocol.html">AdapterFactoryProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BinaryReadable.html">BinaryReadable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/IPAddress.html">IPAddress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NWUDPSocketDelegate.html">NWUDPSocketDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ProxySocketProtocol.html">ProxySocketProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RawSocketDelegate.html">RawSocketDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RawSocketProtocol.html">RawSocketProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SocketDelegate.html">SocketDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SocketProtocol.html">SocketProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TransportProtocol.html">TransportProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TunnelDelegate.html">TunnelDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AdapterFactoryParser.html">AdapterFactoryParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NetworkInterface.html">NetworkInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Opt.html">Opt</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RuleParser.html">RuleParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ShadowsocksEncryptHelper.html">ShadowsocksEncryptHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SocketTag.html">SocketTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SocketTag/HTTP.html">– HTTP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SocketTag/SOCKS5.html">– SOCKS5</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils.html">Utils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils/HTTPData.html">– HTTPData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils/DNS.html">– DNS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils/IP.html">– IP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils/GeoIPLookup.html">– GeoIPLookup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Utils/Crypto.html">– Crypto</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AdapterFactoryManager</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5NEKit21AdapterFactoryManager11factoryDictGVs10DictionarySSPS_22AdapterFactoryProtocol__"></a>
+                    <a name="//apple_ref/swift/Property/factoryDict" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit21AdapterFactoryManager11factoryDictGVs10DictionarySSPS_22AdapterFactoryProtocol__">factoryDict</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5NEKit21AdapterFactoryManagercFT11factoryDictGVs10DictionarySSPS_22AdapterFactoryProtocol___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(factoryDict:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit21AdapterFactoryManagercFT11factoryDictGVs10DictionarySSPS_22AdapterFactoryProtocol___S0_">init(factoryDict:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
