@@ -2,7 +2,6 @@
 
 gem install jazzy --no-ri --no-rdoc
 
-rm -rf tun2socks
 git submodule update --init --recursive --remote --merge
 
 jazzy --swift-version 2.2 \
