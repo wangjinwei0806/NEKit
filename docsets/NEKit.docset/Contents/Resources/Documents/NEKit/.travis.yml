@@ -1,0 +1,17 @@
+language: objective-c
+osx_image: xcode7.3
+xcode_project: NEKit.xcodeproj
+xcode_scheme:
+  # - NEKit-iOS
+  - NEKit-OSX
+cache:
+  directories:
+    - Carthage
+
+install:
+  - brew update && brew install swiftlint
+  - bin/bootstrap-if-needed
+
+after_success:
+  - ./scripts/build_docs.sh
+
