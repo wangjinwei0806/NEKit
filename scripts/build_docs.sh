@@ -2,7 +2,7 @@
 
 gem install jazzy --no-ri --no-rdoc
 
-git submodule update --init --recursive --remote --merge
+git submodule update --init --remote --merge
 
 jazzy --swift-version 2.2 \
       -o ./ \
