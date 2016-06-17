@@ -1,0 +1,15 @@
+swift-version: 2.2
+output: ./
+source-directory: NEKit/
+readme: NEKit/README.md
+author: Zhuhao Wang
+module: NEKit
+github_url: https://github.com/zhuhaow/NEKit
+min_acl: internal
+
+custom_categories:
+  - name: Proxy Server
+    children:
+    - ProxyServer
+    - GCDProxyServer
+    - GCDSOCKS5ProxyServer
