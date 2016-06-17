@@ -14,7 +14,7 @@
     <a title="Atomic Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (5% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (6% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -379,7 +379,13 @@
         <section>
           <section class="section">
             <h1>Atomic</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Atomic</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Atomic provides thread-safety to access a variable.</p>
 
           </section>
           <section class="section task-group-section">
@@ -398,8 +404,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The thread-safe variable.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -417,8 +431,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Init the <code>Atomic</code> to access the variable in a thread-safe way.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The variable needs to be thread-safe.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -436,7 +478,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The provides a scheme to access the underlying variable in a block.</p>
+
+<p>The variable can be accessed with <code><a href="../Classes/Box.html#/s:vC5NEKit3Box5valuex">Box&lt;T&gt;.value</a></code> as:</p>
+
+<pre class="highlight plaintext"><code>let atomic = Atomic([1,2,3])
+atomic.withBox { array in
+   array.value.append(4)
+   return array.value.reduce(0, combine: +)
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">withBox</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Classes/Box.html">Box</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">U</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">U</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The code to run with <code>variable</code> wrapped in a <code>Box</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Any value returned by the block.</p>
 
                       </div>
                     </section>
