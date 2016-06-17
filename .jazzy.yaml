@@ -1,6 +1,6 @@
-swift-version: 2.2
+swift_version: 2.2
 output: ./
-source-directory: NEKit/
+source_directory: NEKit/
 readme: NEKit/README.md
 author: Zhuhao Wang
 module: NEKit
