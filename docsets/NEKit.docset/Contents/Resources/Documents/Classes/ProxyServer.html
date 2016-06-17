@@ -14,7 +14,7 @@
     <a title="ProxyServer Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (4% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (5% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -110,6 +110,12 @@
                 <a href="../Classes/DirectRule.html">DirectRule</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/GCDProxyServer.html">GCDProxyServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCDSOCKS5ProxyServer.html">GCDSOCKS5ProxyServer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/GCDTCPSocket.html">GCDTCPSocket</a>
               </li>
               <li class="nav-group-task">
@@ -171,9 +177,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/RuleManager.html">RuleManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SOCKS5ProxyServer.html">SOCKS5ProxyServer</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SOCKS5ProxySocket.html">SOCKS5ProxySocket</a>
@@ -428,9 +431,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit11ProxyServer4portSi"></a>
+                    <a name="/s:vC5NEKit11ProxyServer4portCS_4Port"></a>
                     <a name="//apple_ref/swift/Property/port" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11ProxyServer4portSi">port</a>
+                    <a class="token" href="#/s:vC5NEKit11ProxyServer4portCS_4Port">port</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -445,7 +448,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">port</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span></code></pre>
 
                         </div>
                       </div>
@@ -455,9 +458,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit11ProxyServer7addressSS"></a>
+                    <a name="/s:vC5NEKit11ProxyServer7addressCS_11IPv4Address"></a>
                     <a name="//apple_ref/swift/Property/address" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11ProxyServer7addressSS">address</a>
+                    <a class="token" href="#/s:vC5NEKit11ProxyServer7addressCS_11IPv4Address">address</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -472,7 +475,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">address</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span></code></pre>
 
                         </div>
                       </div>
@@ -482,9 +485,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit11ProxyServercFT7addressSS4portSi_S0_"></a>
+                    <a name="/s:FC5NEKit11ProxyServercFT7addressCS_11IPv4Address4portCS_4Port_S0_"></a>
                     <a name="//apple_ref/swift/Method/init(address:port:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit11ProxyServercFT7addressSS4portSi_S0_">init(address:port:)</a>
+                    <a class="token" href="#/s:FC5NEKit11ProxyServercFT7addressCS_11IPv4Address4portCS_4Port_S0_">init(address:port:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -499,7 +502,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -542,9 +545,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit11ProxyServer5startFT_Sb"></a>
+                    <a name="/s:FC5NEKit11ProxyServer5startFzT_T_"></a>
                     <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit11ProxyServer5startFT_Sb">start()</a>
+                    <a class="token" href="#/s:FC5NEKit11ProxyServer5startFzT_T_">start()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -554,19 +557,20 @@
                       <div class="abstract">
                         <p>Start the proxy server.</p>
 
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    The error occured when starting the proxy server.
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span> <span class="k">throws</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>If the proxy starts successfully.</p>
-
                       </div>
                     </section>
                   </div>
@@ -710,7 +714,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-16)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

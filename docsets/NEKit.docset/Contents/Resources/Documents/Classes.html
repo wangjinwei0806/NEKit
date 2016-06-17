@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NEKit Docs</a> (4% documented)</p>
+        <p><a href="index.html">NEKit Docs</a> (5% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -109,6 +109,12 @@
                 <a href="Classes/DirectRule.html">DirectRule</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/GCDProxyServer.html">GCDProxyServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GCDSOCKS5ProxyServer.html">GCDSOCKS5ProxyServer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/GCDTCPSocket.html">GCDTCPSocket</a>
               </li>
               <li class="nav-group-task">
@@ -170,9 +176,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/RuleManager.html">RuleManager</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/SOCKS5ProxyServer.html">SOCKS5ProxyServer</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SOCKS5ProxySocket.html">SOCKS5ProxySocket</a>
@@ -755,6 +758,38 @@ It is built under the strong assumtion that the start and end ips will end with 
                         <p>Undocumented</p>
 
                         <a href="Classes/StreamScanner.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5NEKit20GCDSOCKS5ProxyServer"></a>
+                    <a name="//apple_ref/swift/Class/GCDSOCKS5ProxyServer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit20GCDSOCKS5ProxyServer">GCDSOCKS5ProxyServer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The SOCKS5 proxy server.</p>
+
+                        <a href="Classes/GCDSOCKS5ProxyServer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GCDSOCKS5ProxyServer</span><span class="p">:</span> <span class="kt"><a href="Classes/GCDProxyServer.html">GCDProxyServer</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1437,9 +1472,9 @@ It is built under the strong assumtion that the start and end ips will end with 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit17SOCKS5ProxyServer"></a>
-                    <a name="//apple_ref/swift/Class/SOCKS5ProxyServer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit17SOCKS5ProxyServer">SOCKS5ProxyServer</a>
+                    <a name="/s:C5NEKit14GCDProxyServer"></a>
+                    <a name="//apple_ref/swift/Class/GCDProxyServer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit14GCDProxyServer">GCDProxyServer</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1447,9 +1482,19 @@ It is built under the strong assumtion that the start and end ips will end with 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Proxy server which listens on some port by GCDAsyncSocket.</p>
 
-                        <a href="Classes/SOCKS5ProxyServer.html" class="slightly-smaller">See more</a>
+<p>This shoule be the base class for any concrete implemention of proxy server (e.g., HTTP or SOCKS5) which needs to listen on some port.</p>
+
+                        <a href="Classes/GCDProxyServer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GCDProxyServer</span><span class="p">:</span> <span class="kt"><a href="Classes/ProxyServer.html">ProxyServer</a></span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1737,7 +1782,7 @@ It is built under the strong assumtion that the start and end ips will end with 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-16)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
