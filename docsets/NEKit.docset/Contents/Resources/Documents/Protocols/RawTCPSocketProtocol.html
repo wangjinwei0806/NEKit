@@ -14,7 +14,7 @@
     <a title="RawTCPSocketProtocol Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (8% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (11% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -397,8 +397,13 @@
               </div>
             <p>The raw socket protocol which represents a TCP socket.</p>
 
-<p>Any concrete implemention does not need to be thread-safe.
-- warning: It is expected that the instance is accessed on the <code>delegateQueue</code> only.</p>
+<p>Any concrete implemention does not need to be thread-safe.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    It is expected that the instance is accessed on the <code>delegateQueue</code> only.
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -596,9 +601,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP5NEKit20RawTCPSocketProtocol9connectToFTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_"></a>
+                    <a name="/s:FP5NEKit20RawTCPSocketProtocol9connectToFzTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_"></a>
                     <a name="//apple_ref/swift/Method/connectTo(_:port:enableTLS:tlsSettings:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP5NEKit20RawTCPSocketProtocol9connectToFTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_">connectTo(_:port:enableTLS:tlsSettings:)</a>
+                    <a class="token" href="#/s:FP5NEKit20RawTCPSocketProtocol9connectToFzTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_">connectTo(_:port:enableTLS:tlsSettings:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -608,12 +613,18 @@
                       <div class="abstract">
                         <p>Connect to remote host.</p>
 
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>The error occured when connecting to host.</p>
+
+</div>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connectTo</span><span class="p">(</span><span class="nv">host</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">enableTLS</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">tlsSettings</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSObject</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connectTo</span><span class="p">(</span><span class="nv">host</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">enableTLS</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">tlsSettings</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSObject</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]?)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>

@@ -14,7 +14,7 @@
     <a title="GCDTCPSocket Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (8% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (11% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -395,7 +395,13 @@
 
                 </div>
               </div>
-            <p>This is the swift wrapper around GCDAsyncSocket.</p>
+            <p>The TCP socket build upon <code>GCDAsyncSocket</code>.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This class is not thread-safe, it is expected that the instance is accessed on the <code>delegateQueue</code> only.
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -404,9 +410,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit12GCDTCPSocket6socketERR"></a>
-                    <a name="//apple_ref/swift/Property/socket" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit12GCDTCPSocket6socketERR">socket</a>
+                    <a name="/s:FC5NEKit12GCDTCPSocketcERR"></a>
+                    <a name="//apple_ref/swift/Method/init(socket:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocketcERR">init(socket:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -414,14 +420,72 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initailize an instance with <code>GCDAsyncSocket</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">socket</span><span class="p">:</span> <span class="kt">GCDAsyncSocket</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>socket</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The socket object to work with. If this is <code>nil</code>, then a new <code>GCDAsyncSocket</code> instance is created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/RawTCPSocketProtocol%20implemention"></a>
+                <a name="//apple_ref/swift/Section/RawTCPSocketProtocol implemention" class="dashAnchor"></a>
+                <a href="#/RawTCPSocketProtocol%20implemention">
+                  <h3 class="section-name">RawTCPSocketProtocol implemention</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5NEKit12GCDTCPSocket8delegateXwGSqPS_20RawTCPSocketDelegate__"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit12GCDTCPSocket8delegateXwGSqPS_20RawTCPSocketDelegate__">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Protocols/RawTCPSocketDelegate.html">RawTCPSocketDelegate</a></code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RawTCPSocketDelegate.html">RawTCPSocketDelegate</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -441,41 +505,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>And every method call and variable access must operated on this queue. And all delegate methods will be called on this queue.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should be set as soon as the instance is initialized.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit12GCDTCPSocket8delegateXwGSqPS_20RawTCPSocketDelegate__"></a>
-                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit12GCDTCPSocket8delegateXwGSqPS_20RawTCPSocketDelegate__">delegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">delegateQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
 
                         </div>
                       </div>
@@ -495,14 +538,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If the socket is connected.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isConnected</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -522,14 +565,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The source address.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">sourceIPAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -549,14 +592,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The source port.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">sourcePort</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -576,14 +619,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The destination address.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Always return <code>nil</code>.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">destinationIPAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -603,14 +652,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The destination port.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Always return <code>nil</code>.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">destinationPort</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -620,47 +675,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit12GCDTCPSocketcERR"></a>
-                    <a name="//apple_ref/swift/Method/init(socket:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocketcERR">init(socket:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/RawTCPSocketProtocol%20implemention"></a>
-                <a name="//apple_ref/swift/Section/RawTCPSocketProtocol implemention" class="dashAnchor"></a>
-                <a href="#/RawTCPSocketProtocol%20implemention">
-                  <h3 class="section-name">RawTCPSocketProtocol implemention</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC5NEKit12GCDTCPSocket9connectToFTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_"></a>
+                    <a name="/s:FC5NEKit12GCDTCPSocket9connectToFzTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_"></a>
                     <a name="//apple_ref/swift/Method/connectTo(_:port:enableTLS:tlsSettings:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocket9connectToFTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_">connectTo(_:port:enableTLS:tlsSettings:)</a>
+                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocket9connectToFzTSS4portSi9enableTLSSb11tlsSettingsGSqGVs10DictionaryCSo8NSObjectPs9AnyObject____T_">connectTo(_:port:enableTLS:tlsSettings:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -668,16 +685,81 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Connect to remote host.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>The error occured when connecting to host.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connectTo</span><span class="p">(</span><span class="nv">host</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">enableTLS</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">tlsSettings</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSObject</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>host</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Remote host.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>port</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Remote port.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>enableTLS</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Should TLS be enabled.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tlsSettings</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The settings of TLS.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -695,14 +777,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Disconnect the socket.</p>
+
+<p>The socket should disconnect elegantly after any queued writing data are successfully sent.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Usually, any concrete implemention should wait before any pending writing data are finished then call <code><a href="../Classes/GCDTCPSocket.html#/s:FC5NEKit12GCDTCPSocket15forceDisconnectFT_T_">forceDisconnect()</a></code>.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">disconnect</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -722,14 +812,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Disconnect the socket immediately.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The socket should disconnect as soon as possible.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">forceDisconnect</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -749,16 +845,55 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Send data to remote.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last write is finished, i.e., <code>delegate?.didWriteData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">writeData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data to send.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -776,16 +911,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Read data from the socket.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last read is finished, i.e., <code>delegate?.didReadData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">readDataWithTag</span><span class="p">(</span><span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -803,16 +964,55 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Read specific length of data from the socket.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last read is finished, i.e., <code>delegate?.didReadData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">readDataToLength</span><span class="p">(</span><span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>length</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The length of the data to read.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -830,16 +1030,55 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Read data until a specific pattern (including the pattern).</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last read is finished, i.e., <code>delegate?.didReadData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">readDataToData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pattern.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -848,10 +1087,10 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/other%20helper%20methods"></a>
-                <a name="//apple_ref/swift/Section/other helper methods" class="dashAnchor"></a>
-                <a href="#/other%20helper%20methods">
-                  <h3 class="section-name">other helper methods</h3>
+                <a name="/Other%20helper%20methods"></a>
+                <a name="//apple_ref/swift/Section/Other helper methods" class="dashAnchor"></a>
+                <a href="#/Other%20helper%20methods">
+                  <h3 class="section-name">Other helper methods</h3>
                 </a>
               </div>
               <ul>
@@ -868,16 +1107,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Send data to remote.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last write is finished, i.e., <code>delegate?.didWriteData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">writeData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">,</span> <span class="n">withTimeout</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data to send.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Operation timeout.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -895,16 +1186,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Read specific length of data from the socket.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last read is finished, i.e., <code>delegate?.didReadData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">readDataToLength</span><span class="p">(</span><span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">withTimeout</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>length</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The length of the data to read.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Operation timeout.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -922,16 +1265,68 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Read data until a specific pattern (including the pattern).</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This should only be called after the last read is finished, i.e., <code>delegate?.didReadData()</code> is called.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">readDataToData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">,</span> <span class="n">withTimeout</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">withTag</span> <span class="nv">tag</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pattern.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Operation timeout.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tag</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tag identifying the data in the callback delegate method.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -939,9 +1334,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit12GCDTCPSocket13connectToHostFTSS8withPortSi_T_"></a>
+                    <a name="/s:FC5NEKit12GCDTCPSocket13connectToHostFzTSS8withPortSi_T_"></a>
                     <a name="//apple_ref/swift/Method/connectToHost(_:withPort:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocket13connectToHostFTSS8withPortSi_T_">connectToHost(_:withPort:)</a>
+                    <a class="token" href="#/s:FC5NEKit12GCDTCPSocket13connectToHostFzTSS8withPortSi_T_">connectToHost(_:withPort:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -949,16 +1344,55 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Connect to remote host.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>The error occured when connecting to host.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connectToHost</span><span class="p">(</span><span class="nv">host</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">withPort</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>host</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Remote host.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>port</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Remote port.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -976,16 +1410,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Secures the connection using SSL/TLS.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">startTLS</span><span class="p">(</span><span class="nv">tlsSettings</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSObject</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tlsSettings</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>TLS settings, refer to documents of <code>GCDAsyncSocket</code> for detail.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -994,10 +1448,10 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/delegate%20methods%20for%20GCDAsyncSocket"></a>
-                <a name="//apple_ref/swift/Section/delegate methods for GCDAsyncSocket" class="dashAnchor"></a>
-                <a href="#/delegate%20methods%20for%20GCDAsyncSocket">
-                  <h3 class="section-name">delegate methods for GCDAsyncSocket</h3>
+                <a name="/Delegate%20methods%20for%20GCDAsyncSocket"></a>
+                <a name="//apple_ref/swift/Section/Delegate methods for GCDAsyncSocket" class="dashAnchor"></a>
+                <a href="#/Delegate%20methods%20for%20GCDAsyncSocket">
+                  <h3 class="section-name">Delegate methods for GCDAsyncSocket</h3>
                 </a>
               </div>
               <ul>

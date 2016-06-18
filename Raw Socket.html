@@ -13,7 +13,7 @@
     <a title="Raw Socket  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NEKit Docs</a> (8% documented)</p>
+        <p><a href="index.html">NEKit Docs</a> (11% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -408,8 +408,13 @@
                       <div class="abstract">
                         <p>The raw socket protocol which represents a TCP socket.</p>
 
-<p>Any concrete implemention does not need to be thread-safe.
-- warning: It is expected that the instance is accessed on the <code>delegateQueue</code> only.</p>
+<p>Any concrete implemention does not need to be thread-safe.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    It is expected that the instance is accessed on the <code>delegateQueue</code> only.
+
+</div>
 
                         <a href="Protocols/RawTCPSocketProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -469,7 +474,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is the swift wrapper around GCDAsyncSocket.</p>
+                        <p>The TCP socket build upon <code>GCDAsyncSocket</code>.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This class is not thread-safe, it is expected that the instance is accessed on the <code>delegateQueue</code> only.
+
+</div>
 
                         <a href="Classes/GCDTCPSocket.html" class="slightly-smaller">See more</a>
                       </div>
