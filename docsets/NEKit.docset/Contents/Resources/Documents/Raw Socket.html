@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Proxy Server  Reference</title>
+    <title>Raw Socket  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,7 +10,7 @@
     
   </head>
   <body>
-    <a title="Proxy Server  Reference"></a>
+    <a title="Raw Socket  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html">NEKit Docs</a> (8% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="index.html">NEKit Reference</a>
         <img id="carat" src="img/carat.png" />
-        Proxy Server  Reference
+        Raw Socket  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -387,7 +387,7 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Proxy Server</h1>
+            <h1>Raw Socket</h1>
             
           </section>
           <section class="section task-group-section">
@@ -396,9 +396,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit11ProxyServer"></a>
-                    <a name="//apple_ref/swift/Class/ProxyServer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit11ProxyServer">ProxyServer</a>
+                    <a name="/s:P5NEKit20RawTCPSocketProtocol"></a>
+                    <a name="//apple_ref/swift/Protocol/RawTCPSocketProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P5NEKit20RawTCPSocketProtocol">RawTCPSocketProtocol</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -406,17 +406,46 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The base proxy server class.</p>
+                        <p>The raw socket protocol which represents a TCP socket.</p>
 
-<p>This proxy does not listen on any port.</p>
+<p>Any concrete implemention does not need to be thread-safe.
+- warning: It is expected that the instance is accessed on the <code>delegateQueue</code> only.</p>
 
-                        <a href="Classes/ProxyServer.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/RawTCPSocketProtocol.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ProxyServer</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/TunnelDelegate.html">TunnelDelegate</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">RawTCPSocketProtocol</span> <span class="p">:</span> <span class="kd">class</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P5NEKit20RawTCPSocketDelegate"></a>
+                    <a name="//apple_ref/swift/Protocol/RawTCPSocketDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P5NEKit20RawTCPSocketDelegate">RawTCPSocketDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The delegate protocol to handle the events from a TCP socket.</p>
+
+                        <a href="Protocols/RawTCPSocketDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">RawTCPSocketDelegate</span><span class="p">:</span> <span class="kd">class</span></code></pre>
 
                         </div>
                       </div>
@@ -430,9 +459,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit14GCDProxyServer"></a>
-                    <a name="//apple_ref/swift/Class/GCDProxyServer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit14GCDProxyServer">GCDProxyServer</a>
+                    <a name="/s:C5NEKit12GCDTCPSocket"></a>
+                    <a name="//apple_ref/swift/Class/GCDTCPSocket" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit12GCDTCPSocket">GCDTCPSocket</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -440,17 +469,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Proxy server which listens on some port by GCDAsyncSocket.</p>
+                        <p>This is the swift wrapper around GCDAsyncSocket.</p>
 
-<p>This shoule be the base class for any concrete implemention of proxy server (e.g., HTTP or SOCKS5) which needs to listen on some port.</p>
-
-                        <a href="Classes/GCDProxyServer.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/GCDTCPSocket.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GCDProxyServer</span><span class="p">:</span> <span class="kt"><a href="Classes/ProxyServer.html">ProxyServer</a></span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GCDTCPSocket</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">GCDAsyncSocketDelegate</span><span class="p">,</span> <span class="kt"><a href="Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -464,9 +491,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit20GCDSOCKS5ProxyServer"></a>
-                    <a name="//apple_ref/swift/Class/GCDSOCKS5ProxyServer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit20GCDSOCKS5ProxyServer">GCDSOCKS5ProxyServer</a>
+                    <a name="/s:C5NEKit11NWTCPSocket"></a>
+                    <a name="//apple_ref/swift/Class/NWTCPSocket" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit11NWTCPSocket">NWTCPSocket</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -474,17 +501,109 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The SOCKS5 proxy server.</p>
+                        <p>Undocumented</p>
 
-                        <a href="Classes/GCDSOCKS5ProxyServer.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/NWTCPSocket.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5NEKit12TUNTCPSocket"></a>
+                    <a name="//apple_ref/swift/Class/TUNTCPSocket" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit12TUNTCPSocket">TUNTCPSocket</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/TUNTCPSocket.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V5NEKit9SocketTag"></a>
+                    <a name="//apple_ref/swift/Struct/SocketTag" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V5NEKit9SocketTag">SocketTag</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All nagtive integers are reserved. Use positive integers for custom tags.</p>
+
+                        <a href="Structs/SocketTag.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GCDSOCKS5ProxyServer</span><span class="p">:</span> <span class="kt"><a href="Classes/GCDProxyServer.html">GCDProxyServer</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">SocketTag</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5NEKit11NWUDPSocket"></a>
+                    <a name="//apple_ref/swift/Class/NWUDPSocket" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit11NWUDPSocket">NWUDPSocket</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/NWUDPSocket.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P5NEKit19NWUDPSocketDelegate"></a>
+                    <a name="//apple_ref/swift/Protocol/NWUDPSocketDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P5NEKit19NWUDPSocketDelegate">NWUDPSocketDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Protocols/NWUDPSocketDelegate.html" class="slightly-smaller">See more</a>
                       </div>
                     </section>
                   </div>
