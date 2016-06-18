@@ -13,3 +13,14 @@ custom_categories:
     - ProxyServer
     - GCDProxyServer
     - GCDSOCKS5ProxyServer
+  
+  - name: Raw Socket
+    children:
+    - RawTCPSocketProtocol
+    - RawTCPSocketDelegate
+    - GCDTCPSocket
+    - NWTCPSocket
+    - TUNTCPSocket
+    - SocketTag
+    - NWUDPSocket
+    - NWUDPSocketDelegate
