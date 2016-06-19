@@ -6,7 +6,6 @@ author: Zhuhao Wang
 module: NEKit
 github_url: https://github.com/zhuhaow/NEKit
 min_acl: internal
-skip_undocumented: true
 
 custom_categories:
   - name: Proxy Server
@@ -22,6 +21,8 @@ custom_categories:
     - GCDTCPSocket
     - NWTCPSocket
     - TUNTCPSocket
+    - RawSocketFactory
+    - SocketBaseType
     - SocketTag
     - NWUDPSocket
     - NWUDPSocketDelegate
