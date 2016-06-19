@@ -14,7 +14,7 @@
     <a title="ListRule Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (16% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (20% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -84,6 +84,32 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Rule.html">Rule</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Rule.html">Rule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AllRule.html">AllRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectRule.html">DirectRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CountryRule.html">CountryRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListRule.html">ListRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSSessionMatchType.html">DNSSessionMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DNSSessionMatchResult.html">DNSSessionMatchResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -91,9 +117,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AdapterSocket.html">AdapterSocket</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/AllRule.html">AllRule</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Atomic.html">Atomic</a>
@@ -118,9 +141,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Other Classes.html#/s:C5NEKit15ConnectResponse">ConnectResponse</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CountryRule.html">CountryRule</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Cryptor.html">Cryptor</a>
@@ -162,9 +182,6 @@
                 <a href="../Classes/DirectProxySocket.html">DirectProxySocket</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/DirectRule.html">DirectRule</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/GeoIP.html">GeoIP</a>
               </li>
               <li class="nav-group-task">
@@ -195,9 +212,6 @@
                 <a href="../Classes/IPv4Pool.html">IPv4Pool</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ListRule.html">ListRule</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/Port.html">Port</a>
               </li>
               <li class="nav-group-task">
@@ -205,9 +219,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Router.html">Router</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/Rule.html">Rule</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/RuleManager.html">RuleManager</a>
@@ -273,12 +284,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/DNSReturnStatus.html">DNSReturnStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/DNSSessionMatchResult.html">DNSSessionMatchResult</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/DNSSessionMatchType.html">DNSSessionMatchType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/DNSType.html">DNSType</a>
@@ -392,7 +397,13 @@
         <section>
           <section class="section">
             <h1>ListRule</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ListRule</span><span class="p">:</span> <span class="kt"><a href="../Classes/Rule.html">Rule</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The rule matches the host domain to a list of predefined regular expressions.</p>
 
           </section>
           <section class="section task-group-section">
@@ -411,27 +422,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The list of regular expressions to match to.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit8ListRule14adapterFactoryPS_22AdapterFactoryProtocol_"></a>
-                    <a name="//apple_ref/swift/Property/adapterFactory" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8ListRule14adapterFactoryPS_22AdapterFactoryProtocol_">adapterFactory</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">urls</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSRegularExpression</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -449,8 +449,55 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Create a new <code>ListRule</code> instance.</p>
 
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>The error when parsing the regualar expressions.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">adapterFactory</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AdapterFactoryProtocol.html">AdapterFactoryProtocol</a></span><span class="p">,</span> <span class="nv">urls</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>adapterFactory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The factory which builds a corresponding adapter when needed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urls</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The list of regular expressions to match. The regular expression is parsed by <code>NSRegularExpression(pattern: url, options: .CaseInsensitive)</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -468,7 +515,53 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Match DNS request to this rule.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">matchDNS</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt"><a href="../Classes/DNSSession.html">DNSSession</a></span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/DNSSessionMatchType.html">DNSSessionMatchType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/DNSSessionMatchResult.html">DNSSessionMatchResult</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>session</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The DNS session to match.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>What kind of information is available.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The result of match.</p>
 
                       </div>
                     </section>
@@ -487,7 +580,40 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Match connect request to this rule.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">match</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConnectRequest.html">ConnectRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AdapterFactoryProtocol.html">AdapterFactoryProtocol</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Connect request to match.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The configured adapter if matched, return <code>nil</code> if not matched.</p>
 
                       </div>
                     </section>
