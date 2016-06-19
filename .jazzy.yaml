@@ -26,3 +26,13 @@ custom_categories:
     - SocketTag
     - NWUDPSocket
     - NWUDPSocketDelegate
+  
+  - name: Rule
+    children:
+    - Rule
+    - AllRule
+    - DirectRule
+    - CountryRule
+    - ListRule
+    - DNSSessionMatchType
+    - DNSSessionMatchResult
