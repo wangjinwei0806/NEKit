@@ -14,7 +14,7 @@
     <a title="RawSocketFactory Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (13% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (16% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -59,6 +59,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TUNTCPSocket.html">TUNTCPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RawSocketFactory.html">RawSocketFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SocketBaseType.html">SocketBaseType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SocketTag.html">SocketTag</a>
@@ -196,9 +202,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ProxySocket.html">ProxySocket</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RawSocketFactory.html">RawSocketFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Router.html">Router</a>
@@ -389,7 +392,13 @@
         <section>
           <section class="section">
             <h1>RawSocketFactory</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RawSocketFactory</span></code></pre>
+
+                </div>
+              </div>
+            <p>Factory to create <code>RawTCPSocket</code> based on configuration.</p>
 
           </section>
           <section class="section task-group-section">
@@ -398,9 +407,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC5NEKit16RawSocketFactory12getRawSocketFT_PS_20RawTCPSocketProtocol_"></a>
-                    <a name="//apple_ref/swift/Method/getRawSocket()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC5NEKit16RawSocketFactory12getRawSocketFT_PS_20RawTCPSocketProtocol_">getRawSocket()</a>
+                    <a name="/s:ZFC5NEKit16RawSocketFactory12getRawSocketFTGSqOS_14SocketBaseType__PS_20RawTCPSocketProtocol_"></a>
+                    <a name="//apple_ref/swift/Method/getRawSocket(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5NEKit16RawSocketFactory12getRawSocketFTGSqOS_14SocketBaseType__PS_20RawTCPSocketProtocol_">getRawSocket(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -408,7 +417,40 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Return <code>RawTCPSocket</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getRawSocket</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/SocketBaseType.html">SocketBaseType</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/RawTCPSocketProtocol.html">RawTCPSocketProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the socket.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The created socket instance.</p>
 
                       </div>
                     </section>

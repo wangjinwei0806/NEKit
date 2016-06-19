@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TransportType Enum Reference</title>
+    <title>SocketBaseType Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TransportType" class="dashAnchor"></a>
-    <a title="TransportType Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/SocketBaseType" class="dashAnchor"></a>
+    <a title="SocketBaseType Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">NEKit Docs</a> (16% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">NEKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TransportType Enum Reference
+        SocketBaseType Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -391,8 +391,19 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TransportType</h1>
-            <p>Undocumented</p>
+            <h1>SocketBaseType</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">SocketBaseType</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents the type of the socket.</p>
+
+<ul>
+<li>NW:  The socket based on <code>NWTCPConnection</code>.</li>
+<li>GCD: The socket based on <code>GCDAsyncSocket</code>.</li>
+</ul>
 
           </section>
           <section class="section task-group-section">
@@ -401,9 +412,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO5NEKit13TransportType4ICMPFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/ICMP" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO5NEKit13TransportType4ICMPFMS0_S0_">ICMP</a>
+                    <a name="/s:FO5NEKit14SocketBaseType2NWFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/NW" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5NEKit14SocketBaseType2NWFMS0_S0_">NW</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -414,15 +425,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">SocketBaseType</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO5NEKit13TransportType3TCPFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/TCP" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO5NEKit13TransportType3TCPFMS0_S0_">TCP</a>
+                    <a name="/s:FO5NEKit14SocketBaseType3GCDFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/GCD" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5NEKit14SocketBaseType3GCDFMS0_S0_">GCD</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -433,24 +452,13 @@
                         <p>Undocumented</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO5NEKit13TransportType3UDPFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/UDP" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO5NEKit13TransportType3UDPFMS0_S0_">UDP</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">SocketBaseType</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>

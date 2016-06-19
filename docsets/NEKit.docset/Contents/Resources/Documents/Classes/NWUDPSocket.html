@@ -14,7 +14,7 @@
     <a title="NWUDPSocket Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (13% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (16% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -59,6 +59,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TUNTCPSocket.html">TUNTCPSocket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RawSocketFactory.html">RawSocketFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SocketBaseType.html">SocketBaseType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SocketTag.html">SocketTag</a>
@@ -196,9 +202,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ProxySocket.html">ProxySocket</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RawSocketFactory.html">RawSocketFactory</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Router.html">Router</a>
@@ -389,31 +392,24 @@
         <section>
           <section class="section">
             <h1>NWUDPSocket</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">NWUDPSocket</span></code></pre>
+
+                </div>
+              </div>
+            <p>The wrapper for NWUDPSession.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This class is thread-safe.
+
+</div>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit11NWUDPSocket7sessionCSo12NWUDPSession"></a>
-                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11NWUDPSocket7sessionCSo12NWUDPSession">session</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -427,65 +423,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The delegate instance.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit11NWUDPSocket5queueGSQPSo17OS_dispatch_queue__"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11NWUDPSocket5queueGSQPSo17OS_dispatch_queue__">queue</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NWUDPSocketDelegate.html">NWUDPSocketDelegate</a></span><span class="p">?</span></code></pre>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit11NWUDPSocket16pendingWriteDataGSaCSo6NSData_"></a>
-                    <a name="//apple_ref/swift/Property/pendingWriteData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11NWUDPSocket16pendingWriteDataGSaCSo6NSData_">pendingWriteData</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit11NWUDPSocket7writingSb"></a>
-                    <a name="//apple_ref/swift/Property/writing" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11NWUDPSocket7writingSb">writing</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -503,8 +450,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Create a new UDP socket connecting to remote.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">host</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>host</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The host.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>port</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The port.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -522,8 +510,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Send data to remote.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">writeData</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data to send.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
