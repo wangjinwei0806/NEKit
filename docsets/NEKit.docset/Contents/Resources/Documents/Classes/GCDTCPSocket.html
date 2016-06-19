@@ -14,7 +14,7 @@
     <a title="GCDTCPSocket Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (11% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (13% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -505,7 +505,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>And every method call and variable access must operated on this queue. And all delegate methods will be called on this queue.</p>
+                        <p>Every method call and variable access must operated on this queue. And all delegate methods will be called on this queue.</p>
 
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
@@ -623,7 +623,7 @@
 
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    Always return <code>nil</code>.
+    Always returns <code>nil</code>.
 
 </div>
 
@@ -656,7 +656,7 @@
 
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    Always return <code>nil</code>.
+    Always returns <code>nil</code>.
 
 </div>
 
@@ -779,13 +779,7 @@
                       <div class="abstract">
                         <p>Disconnect the socket.</p>
 
-<p>The socket should disconnect elegantly after any queued writing data are successfully sent.</p>
-
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    Usually, any concrete implemention should wait before any pending writing data are finished then call <code><a href="../Classes/GCDTCPSocket.html#/s:FC5NEKit12GCDTCPSocket15forceDisconnectFT_T_">forceDisconnect()</a></code>.
-
-</div>
+<p>The socket will disconnect elegantly after any queued writing data are successfully sent.</p>
 
                       </div>
                       <div class="declaration">
@@ -813,12 +807,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Disconnect the socket immediately.</p>
-
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    The socket should disconnect as soon as possible.
-
-</div>
 
                       </div>
                       <div class="declaration">
