@@ -69,6 +69,13 @@ custom_categories:
     - ListRule
     - DNSSessionMatchType
     - DNSSessionMatchResult
+    
+  - name: IP stack
+    children:
+    - TUNInterface
+    - IPStackProtocol
+    - TCPStack
+    - DNSServer
   
   - name: Utilities
     children:
