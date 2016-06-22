@@ -14,7 +14,7 @@
     <a title="Tunnel Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (30% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (36% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -199,6 +199,23 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../IP stack.html">IP stack</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/TUNInterface.html">TUNInterface</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TCPStack.html">TCPStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DNSServer.html">DNSServer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Utilities.html">Utilities</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,9 +272,6 @@
                 <a href="../Classes/DNSResource.html">DNSResource</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/DNSServer.html">DNSServer</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/DNSSession.html">DNSSession</a>
               </li>
               <li class="nav-group-task">
@@ -265,9 +279,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/IPPacket.html">IPPacket</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/IPStack.html">IPStack</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/IPv4Address.html">IPv4Address</a>
@@ -283,9 +294,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SecureHTTPAdapter.html">SecureHTTPAdapter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/TCPStack.html">TCPStack</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Tunnel.html">Tunnel</a>
@@ -350,9 +358,6 @@
                 <a href="../Protocols/IPAddress.html">IPAddress</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/TransportProtocol.html">TransportProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -368,9 +373,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/NetworkInterface.html">NetworkInterface</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Opt.html">Opt</a>
@@ -407,7 +409,13 @@
         <section>
           <section class="section">
             <h1>Tunnel</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The tunnel forwards data from local to remote and back.</p>
 
           </section>
           <section class="section task-group-section">
@@ -426,8 +434,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The proxy socket on local.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">proxySocket</span><span class="p">:</span> <span class="kt"><a href="../Classes/ProxySocket.html">ProxySocket</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -445,8 +461,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The adapter socket connected to remote.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">adapterSocket</span><span class="p">:</span> <span class="kt"><a href="../Classes/AdapterSocket.html">AdapterSocket</a></span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -464,8 +488,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The delegate instance.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TunnelDelegate.html">TunnelDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -473,9 +505,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit6Tunnel13delegateQueueGSQPSo17OS_dispatch_queue__"></a>
-                    <a name="//apple_ref/swift/Property/delegateQueue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit6Tunnel13delegateQueueGSQPSo17OS_dispatch_queue__">delegateQueue</a>
+                    <a name="/s:vC5NEKit6Tunnel5queueGSQPSo17OS_dispatch_queue__"></a>
+                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit6Tunnel5queueGSQPSo17OS_dispatch_queue__">queue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,8 +515,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Every method call and variable access will be called on this queue.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">queue</span> <span class="o">=</span> <span class="nf">dispatch_queue_create</span><span class="p">(</span><span class="s">"NEKit.TunnelQueue"</span><span class="p">,</span> <span class="kt">DISPATCH_QUEUE_SERIAL</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -502,8 +542,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Indicating how many socket is ready to forward data.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">readySignal</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -511,9 +559,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit6Tunnel6closedSb"></a>
-                    <a name="//apple_ref/swift/Property/closed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit6Tunnel6closedSb">closed</a>
+                    <a name="/s:vC5NEKit6Tunnel8isClosedSb"></a>
+                    <a name="//apple_ref/swift/Property/isClosed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit6Tunnel8isClosedSb">isClosed</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -521,8 +569,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>If the tunnel is closed, i.e., proxy socket and adapter socket are both disconnected.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isClosed</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -543,6 +599,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -559,8 +623,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Start running the tunnel.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">openTunnel</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -578,8 +650,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Close the tunnel.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">close</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -600,6 +680,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -618,6 +706,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -638,6 +734,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -656,6 +760,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -676,6 +788,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -695,6 +815,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -713,6 +841,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Tunnel</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SocketDelegate.html">SocketDelegate</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
