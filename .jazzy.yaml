@@ -27,6 +27,39 @@ custom_categories:
     - NWUDPSocket
     - NWUDPSocketDelegate
   
+  - name: Socket
+    children:
+    - SocketProtocol
+    - SocketDelegate
+  
+  - name: Proxy Socket
+    children:
+    - ProxySocketProtocol
+    - ProxySocket
+    - DirectProxySocket
+    - SOCKS5ProxySocket
+  
+  - name: Adapter Socket
+    children:
+    - AdapterSocket
+    - DirectAdapter
+    - HTTPAdapter
+    - SecuredHTTPAdapter
+    - ShadowsocksAdapter
+    - SpeedAdapter
+  
+  - name: Adapter Socket Factory
+    children:
+    - AdapterFactoryManager
+    - AdapterFactoryProtocol
+    - ServerAdapterFactory
+    - AuthenticationAdapterFactory
+    - DirectAdapterFactory
+    - ShadowsocksAdapterFactory
+    - HTTPAdapterFactory
+    - SecureHTTPAdapterFactory
+    - SpeedAdapterFactory
+  
   - name: Rule
     children:
     - Rule
@@ -36,3 +69,10 @@ custom_categories:
     - ListRule
     - DNSSessionMatchType
     - DNSSessionMatchResult
+  
+  - name: Utilities
+    children:
+    - BinaryDataScanner
+    - Atomic
+    - StreamScanner
+    - Checksum
