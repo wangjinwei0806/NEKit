@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RuleManager Class Reference</title>
+    <title>AdapterFactory Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/RuleManager" class="dashAnchor"></a>
-    <a title="RuleManager Class Reference"></a>
+    <a name="//apple_ref/swift/Class/AdapterFactory" class="dashAnchor"></a>
+    <a title="AdapterFactory Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">NEKit Docs</a> (36% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">NEKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RuleManager Class Reference
+        AdapterFactory Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -408,14 +408,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RuleManager</h1>
+            <h1>AdapterFactory</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RuleManager</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">AdapterFactory</span></code></pre>
 
                 </div>
               </div>
-            <p>The class managing rules.</p>
+            <p>The base class of adapter factory.</p>
 
           </section>
           <section class="section task-group-section">
@@ -424,9 +424,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvC5NEKit11RuleManager14currentManagerS0_"></a>
-                    <a name="//apple_ref/swift/Variable/currentManager" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvC5NEKit11RuleManager14currentManagerS0_">currentManager</a>
+                    <a name="/s:FC5NEKit14AdapterFactory10getAdapterFCS_14ConnectRequestCS_13AdapterSocket"></a>
+                    <a name="//apple_ref/swift/Method/getAdapter(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit14AdapterFactory10getAdapterFCS_14ConnectRequestCS_13AdapterSocket">getAdapter(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -434,194 +434,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The current used <code>RuleManager</code>, there is only one manager should be used at a time.</p>
-
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    This should be set before any DNS or connect requests.
-
-</div>
+                        <p>Build an adapter.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">currentManager</span><span class="p">:</span> <span class="kt">RuleManager</span> <span class="o">=</span> <span class="kt">RuleManager</span><span class="p">(</span><span class="nv">fromRules</span><span class="p">:</span> <span class="p">[],</span> <span class="nv">appendDirect</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit11RuleManager5rulesGSaCS_4Rule_"></a>
-                    <a name="//apple_ref/swift/Property/rules" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit11RuleManager5rulesGSaCS_4Rule_">rules</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The rule list.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">rules</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Rule.html">Rule</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC5NEKit11RuleManagercFT9fromRulesGSaCS_4Rule_12appendDirectSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(fromRules:appendDirect:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit11RuleManagercFT9fromRulesGSaCS_4Rule_12appendDirectSb_S0_">init(fromRules:appendDirect:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Create a new <code>RuleManager</code> from the given rules.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">fromRules</span> <span class="nv">rules</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Rule.html">Rule</a></span><span class="p">],</span> <span class="nv">appendDirect</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rules</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The rules.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>appendDirect</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Whether to append a <code>DirectRule</code> at the end of the list so any request does not match with any rule go directly.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC5NEKit11RuleManager8matchDNSFTCS_10DNSSession4typeOS_19DNSSessionMatchType_T_"></a>
-                    <a name="//apple_ref/swift/Method/matchDNS(_:type:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit11RuleManager8matchDNSFTCS_10DNSSession4typeOS_19DNSSessionMatchType_T_">matchDNS(_:type:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Match DNS request to all rules.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">matchDNS</span><span class="p">(</span><span class="nv">session</span><span class="p">:</span> <span class="kt"><a href="../Classes/DNSSession.html">DNSSession</a></span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/DNSSessionMatchType.html">DNSSessionMatchType</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>session</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The DNS session to match.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>What kind of information is available.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC5NEKit11RuleManager5matchFCS_14ConnectRequestGSQCS_14AdapterFactory_"></a>
-                    <a name="//apple_ref/swift/Method/match(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit11RuleManager5matchFCS_14ConnectRequestGSQCS_14AdapterFactory_">match(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Match connect request to all rules.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">match</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConnectRequest.html">ConnectRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AdapterFactory.html">AdapterFactory</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getAdapter</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConnectRequest.html">ConnectRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AdapterSocket.html">AdapterSocket</a></span></code></pre>
 
                         </div>
                       </div>
@@ -637,7 +457,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Connect request to match.</p>
+                                  <p>The connect request.</p>
 
                                 </div>
                               </td>
@@ -647,7 +467,39 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The matched configured adapter.</p>
+                        <p>The built adapter.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5NEKit14AdapterFactory16getDirectAdapterFT_CS_13AdapterSocket"></a>
+                    <a name="//apple_ref/swift/Method/getDirectAdapter()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit14AdapterFactory16getDirectAdapterFT_CS_13AdapterSocket">getDirectAdapter()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper method to get a <code><a href="../Classes/DirectAdapter.html">DirectAdapter</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getDirectAdapter</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/AdapterSocket.html">AdapterSocket</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A direct adapter.</p>
 
                       </div>
                     </section>
