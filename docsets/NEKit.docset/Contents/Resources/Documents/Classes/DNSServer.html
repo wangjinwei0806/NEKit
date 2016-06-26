@@ -14,7 +14,7 @@
     <a title="DNSServer Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (36% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (37% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -299,6 +299,9 @@
                 <a href="../Classes/Tunnel.html">Tunnel</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/UDPDNSResolver.html">UDPDNSResolver</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/UDPSegment.html">UDPSegment</a>
               </li>
             </ul>
@@ -355,6 +358,12 @@
                 <a href="../Protocols/BinaryReadable.html">BinaryReadable</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/DNSResolverProtocol.html">DNSResolverProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/IPAddress.html">IPAddress</a>
               </li>
               <li class="nav-group-task">
@@ -409,7 +418,15 @@
         <section>
           <section class="section">
             <h1>DNSServer</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DNSServer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A DNS server designed as an <code><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></code> implemention which works with TUN interface.</p>
+
+<p>This class is thread-safe.</p>
 
           </section>
           <section class="section task-group-section">
@@ -428,8 +445,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Current DNS server.</p>
 
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    There is at most one DNS server running at the same time. If a DNS server is registered to <code><a href="../Classes/TUNInterface.html">TUNInterface</a></code> then it must also be set here.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">currentServer</span><span class="p">:</span> <span class="kt">DNSServer</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -447,8 +478,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The address of DNS server.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">serverAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -466,103 +505,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The port of DNS server</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit9DNSServer5queuePSo17OS_dispatch_queue_"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit9DNSServer5queuePSo17OS_dispatch_queue_">queue</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">serverPort</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span></code></pre>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit9DNSServer12fakeSessionsGVs10DictionaryCS_11IPv4AddressCS_10DNSSession_"></a>
-                    <a name="//apple_ref/swift/Property/fakeSessions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit9DNSServer12fakeSessionsGVs10DictionaryCS_11IPv4AddressCS_10DNSSession_">fakeSessions</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit9DNSServer15pendingSessionsGVs10DictionaryVs6UInt16CS_10DNSSession_"></a>
-                    <a name="//apple_ref/swift/Property/pendingSessions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit9DNSServer15pendingSessionsGVs10DictionaryVs6UInt16CS_10DNSSession_">pendingSessions</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit9DNSServer4poolCS_8IPv4Pool"></a>
-                    <a name="//apple_ref/swift/Property/pool" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit9DNSServer4poolCS_8IPv4Pool">pool</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit9DNSServer10DNSServersGSaCS_11NWUDPSocket_"></a>
-                    <a name="//apple_ref/swift/Property/DNSServers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit9DNSServer10DNSServersGSaCS_11NWUDPSocket_">DNSServers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -583,15 +535,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DNSServer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit9DNSServercFT7addressCS_11IPv4Address4portCS_4Port10fakeIPPoolCS_8IPv4Pool_S0_"></a>
+                    <a name="/s:FC5NEKit9DNSServercFT7addressCS_11IPv4Address4portCS_4Port10fakeIPPoolGSqCS_8IPv4Pool__S0_"></a>
                     <a name="//apple_ref/swift/Method/init(address:port:fakeIPPool:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit9DNSServercFT7addressCS_11IPv4Address4portCS_4Port10fakeIPPoolCS_8IPv4Pool_S0_">init(address:port:fakeIPPool:)</a>
+                    <a class="token" href="#/s:FC5NEKit9DNSServercFT7addressCS_11IPv4Address4portCS_4Port10fakeIPPoolGSqCS_8IPv4Pool__S0_">init(address:port:fakeIPPool:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -599,8 +559,62 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initailize a DNS server.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">,</span> <span class="nv">port</span><span class="p">:</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">,</span> <span class="nv">fakeIPPool</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Pool.html">IPv4Pool</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>address</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The IP address of the server.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>port</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The listening port of the server.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fakeIPPool</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The pool of fake IP addresses. Set to nil if no fake IP is needed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -618,7 +632,53 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Input IP packet into the DNS server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">inputPacket</span><span class="p">(</span><span class="nv">packet</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">,</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>packet</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>version</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The version of the IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If the packet is taken in by this DNS server.</p>
 
                       </div>
                     </section>
@@ -640,15 +700,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DNSServer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit9DNSServer20getCurrentDNSServersFT_T_"></a>
-                    <a name="//apple_ref/swift/Method/getCurrentDNSServers()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit9DNSServer20getCurrentDNSServersFT_T_">getCurrentDNSServers()</a>
+                    <a name="/s:FC5NEKit9DNSServer12lookupFakeIPFCS_11IPv4AddressGSqCS_10DNSSession_"></a>
+                    <a name="//apple_ref/swift/Method/lookupFakeIP(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit9DNSServer12lookupFakeIPFCS_11IPv4AddressGSqCS_10DNSSession_">lookupFakeIP(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -659,15 +727,70 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DNSServer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit9DNSServer14didReceiveDataFTCSo6NSData4fromCS_11NWUDPSocket_T_"></a>
-                    <a name="//apple_ref/swift/Method/didReceiveData(_:from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit9DNSServer14didReceiveDataFTCSo6NSData4fromCS_11NWUDPSocket_T_">didReceiveData(_:from:)</a>
+                    <a name="/s:FC5NEKit9DNSServer16registerResolverFPS_19DNSResolverProtocol_T_"></a>
+                    <a name="//apple_ref/swift/Method/registerResolver(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit9DNSServer16registerResolverFPS_19DNSResolverProtocol_T_">registerResolver(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add new DNS resolver to DNS server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerResolver</span><span class="p">(</span><span class="nv">resolver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverProtocol.html">DNSResolverProtocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolver</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The resolver to add.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5NEKit9DNSServer18didReceiveResponseFCSo6NSDataT_"></a>
+                    <a name="//apple_ref/swift/Method/didReceiveResponse(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit9DNSServer18didReceiveResponseFCSo6NSDataT_">didReceiveResponse(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -677,6 +800,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DNSServer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/IPStackProtocol.html">IPStackProtocol</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -686,7 +817,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-22)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

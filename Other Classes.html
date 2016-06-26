@@ -13,7 +13,7 @@
     <a title="Other Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NEKit Docs</a> (36% documented)</p>
+        <p><a href="index.html">NEKit Docs</a> (37% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -298,6 +298,9 @@
                 <a href="Classes/Tunnel.html">Tunnel</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/UDPDNSResolver.html">UDPDNSResolver</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/UDPSegment.html">UDPSegment</a>
               </li>
             </ul>
@@ -352,6 +355,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/BinaryReadable.html">BinaryReadable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DNSResolverDelegate.html">DNSResolverDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/DNSResolverProtocol.html">DNSResolverProtocol</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/IPAddress.html">IPAddress</a>
@@ -441,6 +450,30 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C5NEKit14UDPDNSResolver"></a>
+                    <a name="//apple_ref/swift/Class/UDPDNSResolver" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit14UDPDNSResolver">UDPDNSResolver</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/UDPDNSResolver.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C5NEKit11IPv4Address"></a>
                     <a name="//apple_ref/swift/Class/IPv4Address" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5NEKit11IPv4Address">IPv4Address</a>
@@ -497,40 +530,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit8IPv4Pool"></a>
-                    <a name="//apple_ref/swift/Class/IPv4Pool" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit8IPv4Pool">IPv4Pool</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The pool is build to hold fake ips.
-It is built under the strong assumtion that the start and end ips will end with 0, e.g, X.X.X.0, and stepSize will only be 256.
-- note: It is NOT thread-safe.</p>
-
-                        <a href="Classes/IPv4Pool.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">IPv4Pool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:C5NEKit4Port"></a>
                     <a name="//apple_ref/swift/Class/Port" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5NEKit4Port">Port</a>
@@ -544,6 +543,45 @@ It is built under the strong assumtion that the start and end ips will end with 
                         <p>Undocumented</p>
 
                         <a href="Classes/Port.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5NEKit8IPv4Pool"></a>
+                    <a name="//apple_ref/swift/Class/IPv4Pool" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit8IPv4Pool">IPv4Pool</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The pool is build to hold fake ips.
+It is built under the strong assumtion that the start and end ips will end with 0, e.g, X.X.X.0, and stepSize will only be 256.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    It is NOT thread-safe.
+
+</div>
+
+                        <a href="Classes/IPv4Pool.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">IPv4Pool</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -924,7 +962,7 @@ It is built under the strong assumtion that the start and end ips will end with 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-22)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
