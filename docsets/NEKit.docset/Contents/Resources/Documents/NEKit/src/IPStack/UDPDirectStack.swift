@@ -27,7 +27,7 @@ public class UDPDirectStack: IPStackProtocol, NWUDPSocketDelegate {
 
     private let cleanUpTimer: dispatch_source_t
 
-    init() {
+    public init() {
         cleanUpTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
         dispatch_source_set_timer(cleanUpTimer, DISPATCH_TIME_NOW, NSEC_PER_SEC * UInt64(Opt.UDPSocketActiveCheckInterval), NSEC_PER_SEC * 30)
         dispatch_source_set_event_handler(cleanUpTimer) {
@@ -66,7 +66,10 @@ public class UDPDirectStack: IPStackProtocol, NWUDPSocketDelegate {
             return
         }
 
-        let (_, socket) = findOrCreateSocketForPacket(packet)
+        guard let (_, socket) = findOrCreateSocketForPacket(packet) else {
+            return
+        }
+
         // swiftlint:disable:next force_cast
         let payload = (packet.protocolParser as! UDPProtocolParser).payload
         socket.writeData(payload)
@@ -102,7 +105,7 @@ public class UDPDirectStack: IPStackProtocol, NWUDPSocketDelegate {
         return result
     }
 
-    private func findOrCreateSocketForPacket(packet: IPPacket) -> (ConnectInfo, NWUDPSocket) {
+    private func findOrCreateSocketForPacket(packet: IPPacket) -> (ConnectInfo, NWUDPSocket)? {
         // swiftlint:disable:next force_cast
         let udpParser = packet.protocolParser as! UDPProtocolParser
         let connectInfo = ConnectInfo(sourceAddress: packet.sourceAddress, sourcePort: udpParser.sourcePort, destinationAddress: packet.destinationAddress, destinationPort: udpParser.destinationPort)
@@ -111,7 +114,11 @@ public class UDPDirectStack: IPStackProtocol, NWUDPSocketDelegate {
             return (connectInfo, socket)
         }
 
-        let udpSocket = NWUDPSocket(host: connectInfo.destinationAddress.presentation, port: connectInfo.destinationPort.intValue)
+        guard let request = ConnectRequest(ipAddress: connectInfo.destinationAddress, port: connectInfo.destinationPort) else {
+            return nil
+        }
+
+        let udpSocket = NWUDPSocket(host: request.host, port: request.port)
         udpSocket.delegate = self
 
         dispatch_sync(queue) {
@@ -123,7 +130,8 @@ public class UDPDirectStack: IPStackProtocol, NWUDPSocketDelegate {
     // This shoule be called by the timer, so is already on `queue`.
     private func cleanUpTimeoutSocket() {
         for (connectInfo, socket) in activeSockets {
-            if (socket.lastActive.dateByAddingTimeInterval(NSTimeInterval(Opt.UDPSocketActiveTimeout)).compare(NSDate()) == .OrderedAscending) {
+            if socket.lastActive.dateByAddingTimeInterval(NSTimeInterval(Opt.UDPSocketActiveTimeout)).compare(NSDate()) == .OrderedAscending {
+                socket.delegate = nil
                 activeSockets.removeValueForKey(connectInfo)
             }
         }

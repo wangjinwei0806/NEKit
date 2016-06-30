@@ -14,7 +14,7 @@
     <a title="ConnectRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (39% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (40% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -442,6 +442,35 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:vC5NEKit14ConnectRequest13requestedHostSS"></a>
+                    <a name="//apple_ref/swift/Property/requestedHost" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit14ConnectRequest13requestedHostSS">requestedHost</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The requested host.</p>
+
+<p>This is the host received in the request. May be a domain, a real IP or a fake IP.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">requestedHost</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:vC5NEKit14ConnectRequest4hostSS"></a>
                     <a name="//apple_ref/swift/Property/host" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC5NEKit14ConnectRequest4hostSS">host</a>
@@ -452,14 +481,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The real host for this request.</p>
+
+<p>If the request is initailized with a host domain, then <code>host == requestedHost</code>.
+Otherwise, the requested IP address is looked up in the DNS server to see if it corresponds to a domain if <code><a href="../Classes/ConnectRequest.html#/s:vC5NEKit14ConnectRequest13fakeIPEnabledSb">fakeIPEnabled</a></code> is <code>true</code>.
+Unless there is a good reason not to, any socket shoule connect based on this directly.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">host</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -479,14 +512,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The requested port.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -506,14 +539,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The rule to use to connect to remote.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">matchedRule</span><span class="p">:</span> <span class="kt"><a href="../Classes/Rule.html">Rule</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -533,14 +566,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether If the <code><a href="../Classes/ConnectRequest.html#/s:vC5NEKit14ConnectRequest13requestedHostSS">requestedHost</a></code> is an IP address.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">fakeIPEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -560,14 +593,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The resolved IP address.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This will always be real IP address.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">ipAddress</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span></code></pre>
 
                         </div>
                       </div>
@@ -580,6 +619,33 @@
                     <a name="/s:vC5NEKit14ConnectRequest7countrySS"></a>
                     <a name="//apple_ref/swift/Property/country" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC5NEKit14ConnectRequest7countrySS">country</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The location of the host.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">country</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5NEKit14ConnectRequestcFT4hostSS4portSi13fakeIPEnabledSb_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(host:port:fakeIPEnabled:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit14ConnectRequestcFT4hostSS4portSi13fakeIPEnabledSb_GSqS0__">init(host:port:fakeIPEnabled:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -604,9 +670,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit14ConnectRequestcFT4hostSS4portSi13fakeIPEnabledSb_GSqS0__"></a>
-                    <a name="//apple_ref/swift/Method/init(host:port:fakeIPEnabled:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit14ConnectRequestcFT4hostSS4portSi13fakeIPEnabledSb_GSqS0__">init(host:port:fakeIPEnabled:)</a>
+                    <a name="/s:FC5NEKit14ConnectRequestcFT9ipAddressCS_11IPv4Address4portCS_4Port13fakeIPEnabledSb_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(ipAddress:port:fakeIPEnabled:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit14ConnectRequestcFT9ipAddressCS_11IPv4Address4portCS_4Port13fakeIPEnabledSb_GSqS0__">init(ipAddress:port:fakeIPEnabled:)</a>
                     </code>
                   </div>
                   <div class="height-container">
