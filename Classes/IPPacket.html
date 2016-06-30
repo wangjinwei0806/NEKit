@@ -14,7 +14,7 @@
     <a title="IPPacket Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NEKit Docs</a> (37% documented)</p>
+        <p><a href="../index.html">NEKit Docs</a> (39% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -302,7 +302,10 @@
                 <a href="../Classes/UDPDNSResolver.html">UDPDNSResolver</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/UDPSegment.html">UDPSegment</a>
+                <a href="../Classes/UDPDirectStack.html">UDPDirectStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UDPProtocolParser.html">UDPProtocolParser</a>
               </li>
             </ul>
           </li>
@@ -328,7 +331,7 @@
                 <a href="../Enums/SocketStatus.html">SocketStatus</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/TransportType.html">TransportType</a>
+                <a href="../Enums/TransportProtocol.html">TransportProtocol</a>
               </li>
             </ul>
           </li>
@@ -349,6 +352,9 @@
               <li class="nav-group-task">
                 <a href="../Other Functions.html#/s:ZF5NEKitoi2eeFTCS_4PortS0__Sb">==(_:_:)</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:ZF5NEKitoi2eeFTVS_11ConnectInfoS0__Sb">==(_:_:)</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -367,7 +373,7 @@
                 <a href="../Protocols/IPAddress.html">IPAddress</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/TransportProtocol.html">TransportProtocol</a>
+                <a href="../Protocols/TransportProtocolParserProtocol.html">TransportProtocolParserProtocol</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/TunnelDelegate.html">TunnelDelegate</a>
@@ -382,6 +388,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ConnectInfo.html">ConnectInfo</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Opt.html">Opt</a>
@@ -418,7 +427,19 @@
         <section>
           <section class="section">
             <h1>IPPacket</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                </div>
+              </div>
+            <p>The class to process and build IP packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Only IPv4 is supported as of now.
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -427,9 +448,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC5NEKit8IPPacket17peekTransportTypeFCSo6NSDataGSqOS_13TransportType_"></a>
-                    <a name="//apple_ref/swift/Method/peekTransportType(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC5NEKit8IPPacket17peekTransportTypeFCSo6NSDataGSqOS_13TransportType_">peekTransportType(_:)</a>
+                    <a name="/s:ZFC5NEKit8IPPacket13peekIPVersionFCSo6NSDataGSqOS_9IPVersion_"></a>
+                    <a name="//apple_ref/swift/Method/peekIPVersion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5NEKit8IPPacket13peekIPVersionFCSo6NSDataGSqOS_9IPVersion_">peekIPVersion(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -437,7 +458,144 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the version of the IP Packet without parsing the whole packet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekIPVersion</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/IPVersion.html">IPVersion</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The version of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC5NEKit8IPPacket12peekProtocolFCSo6NSDataGSqOS_17TransportProtocol_"></a>
+                    <a name="//apple_ref/swift/Method/peekProtocol(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5NEKit8IPPacket12peekProtocolFCSo6NSDataGSqOS_17TransportProtocol_">peekProtocol(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the protocol of the IP Packet without parsing the whole packet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekProtocol</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/TransportProtocol.html">TransportProtocol</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The protocol of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC5NEKit8IPPacket17peekSourceAddressFCSo6NSDataGSqCS_11IPv4Address_"></a>
+                    <a name="//apple_ref/swift/Method/peekSourceAddress(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5NEKit8IPPacket17peekSourceAddressFCSo6NSDataGSqCS_11IPv4Address_">peekSourceAddress(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the source IP address of the IP packet without parsing the whole packet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekSourceAddress</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The source IP address of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
 
                       </div>
                     </section>
@@ -456,7 +614,98 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the destination IP address of the IP packet without parsing the whole packet.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekDestinationAddress</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The destination IP address of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC5NEKit8IPPacket14peekSourcePortFCSo6NSDataGSqCS_4Port_"></a>
+                    <a name="//apple_ref/swift/Method/peekSourcePort(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5NEKit8IPPacket14peekSourcePortFCSo6NSDataGSqCS_4Port_">peekSourcePort(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the source port of the IP packet without parsing the whole packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Only TCP and UDP packet has port field.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekSourcePort</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The source IP address of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
 
                       </div>
                     </section>
@@ -475,7 +724,46 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the destination port of the IP packet without parsing the whole packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Only TCP and UDP packet has port field.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">peekDestinationPort</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Port.html">Port</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing the whole IP packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The destination IP address of the packet. Returns <code>nil</code> if failed to parse the packet.</p>
 
                       </div>
                     </section>
@@ -501,7 +789,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt"><a href="../Enums/IPVersion.html">IPVersion</a></span> <span class="o">=</span> <span class="o">.</span><span class="kt">IPv4</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt"><a href="../Enums/IPVersion.html">IPVersion</a></span> <span class="o">=</span> <span class="o">.</span><span class="kt">IPv4</span></code></pre>
 
                         </div>
                       </div>
@@ -528,7 +816,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">headerLength</span><span class="p">:</span> <span class="kt">UInt8</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">headerLength</span><span class="p">:</span> <span class="kt">UInt8</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
 
                         </div>
                       </div>
@@ -548,14 +836,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This contains the DSCP and ECN of the IP packet. Since we can not send custom IP packet out with NetworkExtension, this is useless and simply ignored.</p>
+                        <p>This contains the DSCP and ECN of the IP packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Since we can not send custom IP packet out with NetworkExtension, this is useless and simply ignored.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">tos</span><span class="p">:</span> <span class="kt">UInt8</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">tos</span><span class="p">:</span> <span class="kt">UInt8</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -575,7 +869,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This should be the length of the datagram which should be the length of the payload.
+                        <p>This should be the length of the datagram.
 This value is not read from header since NEPacketTunnelFlow has already taken care of it for us.</p>
 
                       </div>
@@ -583,7 +877,7 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">totalLength</span><span class="p">:</span> <span class="kt">UInt16</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">totalLength</span><span class="p">:</span> <span class="kt">UInt16</span></code></pre>
 
                         </div>
                       </div>
@@ -603,8 +897,19 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Identification of the current packet. Since we do not support fragment, this is ignored and always will be zero. But you should set it whenever possible, e.g., when replying to DNS request, you can set this to be the same as the request packet.
-- note: Theoratically, this should be a sequentially increasing number. It probably will be implemented.</p>
+                        <p>Identification of the current packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Since we do not support fragment, this is ignored and always will be zero.
+
+</div>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Theoratically, this should be a sequentially increasing number. It probably will be implemented.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -631,7 +936,13 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Offset of the current packet. Since we do not support fragment, this is ignored and always will be zero.</p>
+                        <p>Offset of the current packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Since we do not support fragment, this is ignored and always will be zero.
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -658,8 +969,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>TTL of the packet.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">TTL</span><span class="p">:</span> <span class="kt">UInt8</span> <span class="o">=</span> <span class="mi">64</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -677,8 +996,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Source IP address.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">sourceAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -696,8 +1023,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Destination IP address.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">destinationAddress</span><span class="p">:</span> <span class="kt"><a href="../Classes/IPv4Address.html">IPv4Address</a></span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -705,9 +1040,9 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit8IPPacket13transportTypeGSQOS_13TransportType_"></a>
-                    <a name="//apple_ref/swift/Property/transportType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8IPPacket13transportTypeGSQOS_13TransportType_">transportType</a>
+                    <a name="/s:vC5NEKit8IPPacket17transportProtocolGSQOS_17TransportProtocol_"></a>
+                    <a name="//apple_ref/swift/Property/transportProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit8IPPacket17transportProtocolGSQOS_17TransportProtocol_">transportProtocol</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -715,8 +1050,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Transport protocol of the packet.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">transportProtocol</span><span class="p">:</span> <span class="kt"><a href="../Enums/TransportProtocol.html">TransportProtocol</a></span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -724,9 +1067,9 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit8IPPacket16transportSegmentGSQPS_17TransportProtocol__"></a>
-                    <a name="//apple_ref/swift/Property/transportSegment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8IPPacket16transportSegmentGSQPS_17TransportProtocol__">transportSegment</a>
+                    <a name="/s:vC5NEKit8IPPacket14protocolParserGSQPS_31TransportProtocolParserProtocol__"></a>
+                    <a name="//apple_ref/swift/Property/protocolParser" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit8IPPacket14protocolParserGSQPS_31TransportProtocolParserProtocol__">protocolParser</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -734,8 +1077,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Parser to parse the payload in IP packet.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">protocolParser</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TransportProtocolParserProtocol.html">TransportProtocolParserProtocol</a></span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -743,9 +1094,9 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit8IPPacket8datagramGSQCSo6NSData_"></a>
-                    <a name="//apple_ref/swift/Property/datagram" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8IPPacket8datagramGSQCSo6NSData_">datagram</a>
+                    <a name="/s:vC5NEKit8IPPacket10packetDataGSQCSo6NSData_"></a>
+                    <a name="//apple_ref/swift/Property/packetData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit8IPPacket10packetDataGSQCSo6NSData_">packetData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -753,8 +1104,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The data representing the packet.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">packetData</span><span class="p">:</span> <span class="kt">NSData</span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -762,9 +1121,9 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5NEKit8IPPacket15mutableDatagramGSQCSo13NSMutableData_"></a>
-                    <a name="//apple_ref/swift/Property/mutableDatagram" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8IPPacket15mutableDatagramGSQCSo13NSMutableData_">mutableDatagram</a>
+                    <a name="/s:vC5NEKit8IPPacket17mutablePacketDataGSQCSo13NSMutableData_"></a>
+                    <a name="//apple_ref/swift/Property/mutablePacketData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5NEKit8IPPacket17mutablePacketDataGSQCSo13NSMutableData_">mutablePacketData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -772,27 +1131,22 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper to cast the <code><a href="../Classes/IPPacket.html#/s:vC5NEKit8IPPacket10packetDataGSQCSo6NSData_">packetData</a></code> as mutable.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Will error out if <code><a href="../Classes/IPPacket.html#/s:vC5NEKit8IPPacket10packetDataGSQCSo6NSData_">packetData</a></code> is not an instance of <code>NSMutableData</code>.
+
+</div>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC5NEKit8IPPacket13payloadOffsetSi"></a>
-                    <a name="//apple_ref/swift/Property/payloadOffset" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5NEKit8IPPacket13payloadOffsetSi">payloadOffset</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">mutablePacketData</span><span class="p">:</span> <span class="kt">NSMutableData</span><span class="o">!</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -810,8 +1164,16 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initailize a new instance to build IP packet.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -819,9 +1181,9 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5NEKit8IPPacketcFT8datagramCSo6NSData_GSqS0__"></a>
-                    <a name="//apple_ref/swift/Method/init(datagram:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5NEKit8IPPacketcFT8datagramCSo6NSData_GSqS0__">init(datagram:)</a>
+                    <a name="/s:FC5NEKit8IPPacketcFT10packetDataCSo6NSData_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(packetData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5NEKit8IPPacketcFT10packetDataCSo6NSData_GSqS0__">init(packetData:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -829,8 +1191,36 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initailize an <code>IPPacket</code> with data.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">packetData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>packetData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data containing a whole packet.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -851,6 +1241,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -869,6 +1267,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -889,6 +1295,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -907,6 +1321,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -927,6 +1349,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -945,6 +1375,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -965,6 +1403,14 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -973,7 +1419,7 @@ This value is not read from header since NEPacketTunnelFlow has already taken ca
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-26)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

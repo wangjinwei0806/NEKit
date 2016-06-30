@@ -13,7 +13,7 @@
     <a title="Other Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NEKit Docs</a> (37% documented)</p>
+        <p><a href="index.html">NEKit Docs</a> (39% documented)</p>
         <p class="header-right"><a href="https://github.com/zhuhaow/NEKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -301,7 +301,10 @@
                 <a href="Classes/UDPDNSResolver.html">UDPDNSResolver</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/UDPSegment.html">UDPSegment</a>
+                <a href="Classes/UDPDirectStack.html">UDPDirectStack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UDPProtocolParser.html">UDPProtocolParser</a>
               </li>
             </ul>
           </li>
@@ -327,7 +330,7 @@
                 <a href="Enums/SocketStatus.html">SocketStatus</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/TransportType.html">TransportType</a>
+                <a href="Enums/TransportProtocol.html">TransportProtocol</a>
               </li>
             </ul>
           </li>
@@ -348,6 +351,9 @@
               <li class="nav-group-task">
                 <a href="Other Functions.html#/s:ZF5NEKitoi2eeFTCS_4PortS0__Sb">==(_:_:)</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Other Functions.html#/s:ZF5NEKitoi2eeFTVS_11ConnectInfoS0__Sb">==(_:_:)</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -366,7 +372,7 @@
                 <a href="Protocols/IPAddress.html">IPAddress</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/TransportProtocol.html">TransportProtocol</a>
+                <a href="Protocols/TransportProtocolParserProtocol.html">TransportProtocolParserProtocol</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/TunnelDelegate.html">TunnelDelegate</a>
@@ -381,6 +387,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ConnectInfo.html">ConnectInfo</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Opt.html">Opt</a>
@@ -617,6 +626,38 @@ It is built under the strong assumtion that the start and end ips will end with 
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C5NEKit17UDPProtocolParser"></a>
+                    <a name="//apple_ref/swift/Class/UDPProtocolParser" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit17UDPProtocolParser">UDPProtocolParser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parser to process UDP packet and build packet.</p>
+
+                        <a href="Classes/UDPProtocolParser.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">UDPProtocolParser</span><span class="p">:</span> <span class="kt"><a href="Protocols/TransportProtocolParserProtocol.html">TransportProtocolParserProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C5NEKit8IPPacket"></a>
                     <a name="//apple_ref/swift/Class/IPPacket" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5NEKit8IPPacket">IPPacket</a>
@@ -627,29 +668,23 @@ It is built under the strong assumtion that the start and end ips will end with 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The class to process and build IP packet.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Only IPv4 is supported as of now.
+
+</div>
 
                         <a href="Classes/IPPacket.html" class="slightly-smaller">See more</a>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C5NEKit10UDPSegment"></a>
-                    <a name="//apple_ref/swift/Class/UDPSegment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit10UDPSegment">UDPSegment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">IPPacket</span></code></pre>
 
-                        <a href="Classes/UDPSegment.html" class="slightly-smaller">See more</a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -680,6 +715,38 @@ It is built under the strong assumtion that the start and end ips will end with 
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RuleManager</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5NEKit14ConnectRequest"></a>
+                    <a name="//apple_ref/swift/Class/ConnectRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit14ConnectRequest">ConnectRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The request containing information to connect to remote.</p>
+
+                        <a href="Classes/ConnectRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConnectRequest</span></code></pre>
 
                         </div>
                       </div>
@@ -725,9 +792,9 @@ It is built under the strong assumtion that the start and end ips will end with 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5NEKit14ConnectRequest"></a>
-                    <a name="//apple_ref/swift/Class/ConnectRequest" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5NEKit14ConnectRequest">ConnectRequest</a>
+                    <a name="/s:C5NEKit14UDPDirectStack"></a>
+                    <a name="//apple_ref/swift/Class/UDPDirectStack" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5NEKit14UDPDirectStack">UDPDirectStack</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -735,13 +802,25 @@ It is built under the strong assumtion that the start and end ips will end with 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This stack tranmits UDP packets directly.</p>
 
-                        <a href="Classes/ConnectRequest.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/UDPDirectStack.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">UDPDirectStack</span><span class="p">:</span> <span class="kt"><a href="Protocols/IPStackProtocol.html">IPStackProtocol</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/NWUDPSocketDelegate.html">NWUDPSocketDelegate</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -962,7 +1041,7 @@ It is built under the strong assumtion that the start and end ips will end with 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-26)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Zhuhao Wang</a>. All rights reserved. (Last updated: 2016-06-30)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
