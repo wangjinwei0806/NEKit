@@ -459,14 +459,14 @@
 
 <p>This should not be a problem if the applications on your device connect to the local proxy server directly, where we can get the request domain information then send that to remote proxy server if needed.</p>
 
-<p>But think that if an application tries to make a socket connection by itself (e.g., Twitter.app), which generally consists of two steps: </p>
+<p>But consider that if an application tries to make a socket connection by itself (e.g., Twitter.app), which generally consists of two steps: </p>
 
 <ol>
 <li>Make a DNS lookup to find the IP address of the target server.</li>
 <li>Connect to the remote server by socket API provided by the system.</li>
 </ol>
 
-<p>We can read only two independent things from the TUN interface, a UDP packet containing the DNS lookup request and a TCP flow consisting of a serial of TCP packets. So there is no way we can know the initial request domain for the TCP flow. And since there may be multiple domains served on the same host, we can not get the origin domain by save the DNS response and look that up reversely later.</p>
+<p>We can read only two independent things from the TUN interface, a UDP packet containing the DNS lookup request and a TCP flow consisting of a serial of TCP packets. So there is no way we can know the initial request domain for the TCP flow. And since there may be multiple domains served on the same host, we can not get the origin domain by saving the DNS response and looking that up reversely later.</p>
 
 <p>The only solution is to create a fake IP pool and assign each requested domain with a unique fake IP so we can look that up reversely. Every connection later need to look that up from the DNS server; this is the only non-modular part of NEKit which is already encapsulated in <code>ConnectRequest</code>.</p>
 <a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
