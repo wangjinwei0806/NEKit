@@ -430,18 +430,174 @@
 
 <p><a href="https://travis-ci.org/zhuhaow/NEKit"><img src="https://travis-ci.org/zhuhaow/NEKit.svg?branch=master" alt="Build Status"></a></p>
 
-<p>A toolkit for NetworkExtension Framework</p>
+<p>A toolkit for Network Extension Framework.</p>
 
-<p>The design goal of NEKit is to provide everything needed in building a Network Extension app with TunnelProvider while keep the framework as non-opinionated as possible.</p>
+<p>NEKit is the successor of <a href="https://github.com/zhuhaow/soca-ios">Soca</a>. The design goal of NEKit is to provide everything needed in building a Network Extension app with TunnelProvider while keep the framework as non-opinionated as possible.</p>
 
-<p>Currently, NEKit supports:
-- Forward request through different proxies based on remote host location, remote host domain or the connection speed of proxies.
-- Integrated tun2socks framework to support TUN interface.
-- A DNS server that rewrites request and response.
-- Some tools to build IP packets.
-- &hellip;</p>
+<p><strong>NEKit does not depend on Network Extension framework. You can use NEKit without Network Extension entitlement to build a rule based proxy in a few lines.</strong></p>
+
+<p>Currently, NEKit supports:</p>
+
+<ul>
+<li>Forward requests through different proxies based on remote host location, remote host domain or the connection speed of proxies.</li>
+<li>Integrated tun2socks framework to reassemble TCP packets into TCP flows.</li>
+<li>A DNS server that rewrites request and response.</li>
+<li>Some tools to build IP packets.</li>
+<li>&hellip;</li>
+</ul>
 
 <p>Check document <a href="https://zhuhaow.github.io/NEKit">here</a>, which is not finished yet.</p>
+
+<p>Also, you may be more interested in <a href="https://github.com/shadowsocks/Potatso-iOS">Potatso</a> if you just need a working app with GUI supporting shadowsocks.</p>
+<a href='#principle' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='principle'>Principle</h2>
+
+<p>NEKit tries to be as flexible and non-opionated as possible. </p>
+
+<p>However, it is not always as modular as you may think if you want to reproduce transport layer from network layer.</p>
+
+<p>NEKit follows one fundamental principle to keep the best network performance: The host connecting to target server resolves the domain. </p>
+
+<p>This should not be a problem if the applications on your device connect to the local proxy server directly, where we can get the request domain information then send that to remote proxy server if needed.</p>
+
+<p>But think that if an application tries to make a socket connection by itself (e.g., Twitter.app), which generally consists of two steps: </p>
+
+<ol>
+<li>Make a DNS lookup to find the IP address of the target server.</li>
+<li>Connect to the remote server by socket API provided by the system.</li>
+</ol>
+
+<p>We can read only two independent things from the TUN interface, a UDP packet containing the DNS lookup request and a TCP flow consisting of a serial of TCP packets. So there is no way we can know the initial request domain for the TCP flow. And since there may be multiple domains served on the same host, we can not get the origin domain by save the DNS response and look that up reversely later.</p>
+
+<p>The only solution is to create a fake IP pool and assign each requested domain with a unique fake IP so we can look that up reversely. Every connection later need to look that up from the DNS server; this is the only non-modular part of NEKit which is already encapsulated in <code>ConnectRequest</code>.</p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<a href='#add-it-to-you-project' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='add-it-to-you-project'>Add it to you project</h3>
+
+<p>I recommend adding this project to your project, which is easier to debug. </p>
+
+<p>However, you can still use it with Carthage by adding
+<code>
+github &quot;zhuhaow/NEKit&quot;
+</code>
+to you <code>Cartfile</code>.</p>
+<a href='#overview' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='overview'>Overview</h3>
+
+<p>NEKit basically consists of two parts, a proxy server forwarding socket data based on user defined rules and an IP stack reassembling IP packets back to TCP flow as a socket.</p>
+<a href='#rule-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='rule-manager'>Rule manager</h3>
+
+<p>Before starting any proxy server, we need to define rules.</p>
+
+<p>Each rule consists of two parts, one defining what kinding of request matches this rule and another defining what adapter to use. An adapter represents the abstraction of a socket connection to a remote proxy server (or connecting directly). We use <code>AdapterFactory</code> to build adapters.</p>
+<pre class="highlight swift"><code><span class="c1">// Define remote adapter first</span>
+<span class="k">let</span> <span class="nv">directAdapterFactory</span> <span class="o">=</span> <span class="kt">DirectAdapterFactory</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">httpAdapterFactory</span> <span class="o">=</span> <span class="kt">HTTPAdapterFactory</span><span class="p">(</span><span class="nv">serverHost</span><span class="p">:</span> <span class="s">"remote.http.proxy"</span><span class="p">,</span> <span class="nv">serverPort</span><span class="p">:</span> <span class="mi">3128</span><span class="p">,</span> <span class="nv">auth</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">ssAdapterFactory</span> <span class="o">=</span> <span class="kt">ShadowsocksAdapterFactory</span><span class="p">(</span><span class="nv">serverHost</span><span class="p">:</span> <span class="s">"remote.ss.proxy"</span><span class="p">,</span> <span class="nv">serverPort</span><span class="p">:</span> <span class="mi">7077</span><span class="p">,</span> <span class="nv">encryptMethod</span><span class="p">:</span> <span class="s">"AES-256-CFB"</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="s">"1234567890"</span><span class="p">)</span>
+
+<span class="c1">// Then create rules</span>
+<span class="k">let</span> <span class="nv">chinaRule</span> <span class="o">=</span> <span class="kt">CountryRule</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="s">"CN"</span><span class="p">,</span> <span class="nv">match</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">adapterFactory</span><span class="p">:</span> <span class="n">directAdapterFactory</span><span class="p">)</span>
+<span class="c1">// `urls` are regular expressions</span>
+<span class="k">let</span> <span class="nv">listRule</span> <span class="o">=</span> <span class="k">try!</span> <span class="kt">ListRule</span><span class="p">(</span><span class="nv">adapterFactory</span><span class="p">:</span> <span class="n">ssAdapterFactory</span><span class="p">,</span> <span class="nv">urls</span><span class="p">:</span> <span class="p">[</span><span class="s">"some</span><span class="se">\\</span><span class="s">.site</span><span class="se">\\</span><span class="s">.does</span><span class="se">\\</span><span class="s">.not</span><span class="se">\\</span><span class="s">.exists"</span><span class="p">])</span>
+<span class="k">let</span> <span class="nv">allRule</span> <span class="o">=</span> <span class="kt">AllRule</span><span class="p">(</span><span class="nv">adapterFactory</span><span class="p">:</span> <span class="n">httpAdapterFactory</span><span class="p">)</span>
+
+<span class="c1">// Create rule manager, rules will be matched in order.</span>
+<span class="k">let</span> <span class="nv">manager</span> <span class="o">=</span> <span class="kt">RuleManager</span><span class="p">(</span><span class="nv">fromRules</span><span class="p">:</span> <span class="p">[</span><span class="n">listRule</span><span class="p">,</span> <span class="n">chinaRule</span><span class="p">,</span> <span class="n">allRule</span><span class="p">],</span> <span class="nv">appendDirect</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+
+<span class="c1">// Set this manager as the active manager</span>
+<span class="kt">RuleManager</span><span class="o">.</span><span class="n">currentManager</span> <span class="o">=</span> <span class="n">ruleManager</span>
+</code></pre>
+
+<p>There is also <code>Configuration</code> to load rules from a Yaml config file. But that is not recommended.</p>
+<a href='#proxy-server' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='proxy-server'>Proxy server</h3>
+
+<p>Now we can start a proxy server locally.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">server</span> <span class="o">=</span> <span class="kt">GCDSOCKS5ProxyServer</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">IPv4Address</span><span class="p">(</span><span class="nv">fromString</span><span class="p">:</span> <span class="s">"127.0.0.1"</span><span class="p">),</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Port</span><span class="p">(</span><span class="nv">port</span><span class="p">:</span> <span class="mi">9090</span><span class="p">)</span>
+<span class="c1">// There can be multiple proxies running at the same time, but one of them must be set as the `mainProxy` to handle TCP socket from IP stack.</span>
+<span class="kt">ProxyServer</span><span class="o">.</span><span class="n">mainProxy</span> <span class="o">=</span> <span class="n">server</span>
+<span class="k">try!</span> <span class="kt">ProxyServer</span><span class="o">.</span><span class="n">mainProxy</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+</code></pre>
+
+<p>Now there is a SOCKS5 proxy server running on <code>127.0.0.1:9090</code> which will forward requests based on rules defined in <code>RuleManager.currentManager</code>.</p>
+
+<p>If you do not want to handle IP packets, then that&rsquo;s it, just set the proxy to <code>127.0.0.1:9090</code> in System Preferences and you are good to go.</p>
+
+<p>If you want to read on, you will have to request Network Extention entitlement from Apple.</p>
+<a href='#ip-stack' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='ip-stack'>IP stack</h3>
+
+<p>Assuming you already set up a working extension with correct routing configurations (Google how, this is not trivial).</p>
+
+<p>In </p>
+<pre class="highlight swift"><code><span class="nf">startTunnelWithOptions</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">]?,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">(</span><span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+</code></pre>
+
+<p>set <code>RuleManager</code> and start proxy server(s) and then create an instance representing the TUN interface by</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">stack</span> <span class="o">=</span> <span class="kt">TUNInterface</span><span class="p">(</span><span class="nv">packetFlow</span><span class="p">:</span> <span class="n">packetFlow</span><span class="p">)</span>
+</code></pre>
+
+<p>We also have to set</p>
+<pre class="highlight swift"><code><span class="kt">RawSocketFactory</span><span class="o">.</span><span class="kt">TunnelProvider</span> <span class="o">=</span> <span class="k">self</span>
+</code></pre>
+
+<p>to create socket to connect to remote servers with <code>NETunnelProvider</code>.</p>
+
+<p>Then we need to register ip stacks implementing <code>IPStackProtocol</code> to process IP packets.</p>
+
+<p>NEKit provides several stacks.</p>
+<a href='#tcpstack' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='tcpstack'>TCPStack</h4>
+
+<p><code>TCPStack</code> process TCP packets and reassembles them back into TCP flows then send them to the <code>ProxyServer.mainProxy</code> server (Do not worry about the type of the proxy server, they will be handled as direct connection).</p>
+<a href='#dnsserver' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='dnsserver'>DNSServer</h4>
+
+<p>DNS server is implemented as an IP stack processing UDP packets send to it.</p>
+
+<p>First create an DNS server with a fake IP pool. (You should use fake IP, but you can disable it if you want to by set it to nil.)</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">fakeIPPool</span> <span class="o">=</span> <span class="kt">IPv4Pool</span><span class="p">(</span><span class="nv">start</span><span class="p">:</span> <span class="kt">IPv4Address</span><span class="p">(</span><span class="nv">fromString</span><span class="p">:</span> <span class="s">"172.169.1.0"</span><span class="p">),</span> <span class="nv">end</span><span class="p">:</span> <span class="kt">IPv4Address</span><span class="p">(</span><span class="nv">fromString</span><span class="p">:</span> <span class="s">"172.169.255.0"</span><span class="p">))</span>
+<span class="k">let</span> <span class="nv">dnsServer</span> <span class="o">=</span> <span class="kt">DNSServer</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">IPv4Address</span><span class="p">(</span><span class="nv">fromString</span><span class="p">:</span> <span class="s">"172.169.0.1"</span><span class="p">),</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Port</span><span class="p">(</span><span class="nv">port</span><span class="p">:</span> <span class="mi">53</span><span class="p">),</span> <span class="nv">fakeIPPool</span><span class="p">:</span> <span class="n">fakeIPPool</span><span class="p">)</span>
+</code></pre>
+
+<p>Then we have to define how to resolve the DNS requests, NEKit provides the most trivial one which send the request to remote DNS server directly with UDP protocol, you can implement anything you want by implementing <code>DNSResolverProtocol</code>.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">resolver</span> <span class="o">=</span> <span class="kt">UDPDNSResolver</span><span class="p">(</span><span class="nv">address</span><span class="p">:</span> <span class="kt">IPv4Address</span><span class="p">(</span><span class="nv">fromString</span><span class="p">:</span> <span class="s">"114.114.114.114"</span><span class="p">),</span> <span class="nv">port</span><span class="p">:</span> <span class="kt">Port</span><span class="p">(</span><span class="nv">port</span><span class="p">:</span> <span class="mi">53</span><span class="p">))</span>
+<span class="n">dnsServer</span><span class="o">.</span><span class="nf">registerResolver</span><span class="p">(</span><span class="n">resolver</span><span class="p">)</span>
+</code></pre>
+
+<p>It is very important to set </p>
+<pre class="highlight swift"><code><span class="kt">DNSServer</span><span class="o">.</span><span class="n">currentServer</span> <span class="o">=</span> <span class="n">dnsServer</span>
+</code></pre>
+
+<p>so we can look up the fake IP reversely.</p>
+<a href='#udpdirectstack' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='udpdirectstack'>UDPDirectStack</h4>
+
+<p><code>UDPDirectStack</code> sends and reads UDP packets to and from remote server directly.</p>
+
+<p>You can register these stack to TUN interface by</p>
+<pre class="highlight swift"><code><span class="n">interface</span><span class="o">.</span><span class="nf">registerStack</span><span class="p">(</span><span class="n">dnsServer</span><span class="p">)</span>
+<span class="c1">// Note this sends out every UDP packets directly so this must comes after any other stack that processes UDP packets.</span>
+<span class="n">interface</span><span class="o">.</span><span class="nf">registerStack</span><span class="p">(</span><span class="kt">UDPDirectStack</span><span class="p">())</span>
+<span class="n">interface</span><span class="o">.</span><span class="nf">registerStack</span><span class="p">(</span><span class="kt">TCPStack</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
+</code></pre>
+
+<p>When everything is set up, you should start processing packets by calling <code>interface.start()</code> in the completion handler of <code>setTunnelNetworkSettings</code>.</p>
+<a href='#dive-in' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='dive-in'>Dive in</h2>
+
+<p>TODO</p>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>Copyright &copy; 2016, Zhuhao Wang
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<ul>
+<li><p>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of NEKit nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li>
+</ul>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS <q>AS IS</q> AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 
           </section>
         </section>
