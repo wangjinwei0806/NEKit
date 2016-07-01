@@ -505,7 +505,7 @@ to you <code>Cartfile</code>.</p>
 <span class="kt">RuleManager</span><span class="o">.</span><span class="n">currentManager</span> <span class="o">=</span> <span class="n">ruleManager</span>
 </code></pre>
 
-<p>There is also <code>Configuration</code> to load rules from a Yaml config file. But that is not recommended.</p>
+<p>There is also <code>Parser</code> to load rules from a Yaml config file. But that is not recommended.</p>
 <a href='#proxy-server' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='proxy-server'>Proxy server</h3>
 
 <p>Now we can start a proxy server locally.</p>
@@ -612,7 +612,7 @@ to you <code>Cartfile</code>.</p>
 
 <p>Similarly, <code>AdapterSocket</code> encapsulated the logic of how to connect to remote and process the data flow.</p>
 
-<p>Pretty much everything of NEKit follows the <a href="https://en.wikipedia.org/wiki/Delegation_pattern">delegation pattern</a>. If you are not familiar with that, you should learn it first, probabaly by learning how to use <a href="https://github.com/robbiehanson/CocoaAsyncSocket">GCDAsyncSocket</a> (note that the sockets in NEKit are <strong>not</strong> thread-safe which is different from GCDAsyncSocket).</p>
+<p>Pretty much everything of NEKit follows the <a href="https://en.wikipedia.org/wiki/Delegation_pattern">delegation pattern</a>. If you are not familiar with that, you should learn it first, probabaly by learning how to use <a href="https://github.com/robbiehanson/CocoaAsyncSocket">CocoaAsyncSocket</a> (note that the sockets in NEKit are <strong>not</strong> thread-safe which is different from GCDAsyncSocket).</p>
 <a href='#the-lifetime-of-a-code-tunnel-code' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='the-lifetime-of-a-code-tunnel-code'>The lifetime of a <code>Tunnel</code></h3>
 
 <p>When a <code>RawSocketProtocol</code> socket is accepted or created by <code>TCPStack</code>, it is wrapped in a <code>ProxySocket</code> then in a <code>Tunnel</code>. The <code>Tunnel</code> will call <code>proxySocket.openSocket()</code> to let the proxy socket start process data. </p>
