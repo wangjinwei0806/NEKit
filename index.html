@@ -501,7 +501,9 @@ to you <code>Cartfile</code>.</p>
 
 <p>Before starting any proxy server, we need to define rules.</p>
 
-<p>Each rule consists of two parts, one defining what kinding of request matches this rule and the other defining what adapter to use. An adapter represents the abstraction of a socket connection to a remote proxy server (or remote host). We use <code>AdapterFactory</code> to build adapters.</p>
+<p>Each rule consists of two parts, one defining what kinding of request matches this rule and the other defining what adapter to use. An adapter represents the abstraction of a socket connection to a remote proxy server (or remote host). We use <code>AdapterFactory</code> to build adapters. </p>
+
+<p>NEKit provides <code>AdapterSocket</code> supporting HTTP/HTTPS/SOCK5 proxy and Shadowsocks(AES-128-CFB/AES-192-CFB/AES-256-CFB/chacha20/salsa20/rc4-md5). Let me know if there is any other type of proxy needed. You can also implement your own <code>AdapterSocket</code>.</p>
 <pre class="highlight swift"><code><span class="c1">// Define remote adapter first</span>
 <span class="k">let</span> <span class="nv">directAdapterFactory</span> <span class="o">=</span> <span class="kt">DirectAdapterFactory</span><span class="p">()</span>
 <span class="k">let</span> <span class="nv">httpAdapterFactory</span> <span class="o">=</span> <span class="kt">HTTPAdapterFactory</span><span class="p">(</span><span class="nv">serverHost</span><span class="p">:</span> <span class="s">"remote.http.proxy"</span><span class="p">,</span> <span class="nv">serverPort</span><span class="p">:</span> <span class="mi">3128</span><span class="p">,</span> <span class="nv">auth</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
